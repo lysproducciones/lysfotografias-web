@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Contacto - Lys Fotografías{% endblock %}
+
+{% block content %}
+<section class="contacto-container">
+    <div class="contacto-box">
+        <h2>Hablemos de tu Evento</h2>
+        <p>Cuéntame qué estás planeando y hagamos magia.</p>
+        
+        <form action="/contacto" method="POST">
+            
+            <div class="input-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ej. María Pérez" required>
+            </div>
+
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="maria@email.com" required>
+            </div>
+
+            <div class="input-group">
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntame fecha, lugar y tipo de evento..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Enviar Mensaje</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

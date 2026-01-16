@@ -1,0 +1,456 @@
+/* --- Galería estilo Masonry (Pinterest) --- */
+
+.galeria-grid {
+    /* En lugar de Grid, usamos Columnas */
+    column-count: 3; /* Número de columnas por defecto (PC) */
+    column-gap: 20px; /* Espacio lateral entre columnas */
+    
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.foto-item {
+    /* Esto es CLAVE: evita que una foto se parta a la mitad al cambiar de columna */
+    break-inside: avoid; 
+    margin-bottom: 20px; /* Espacio vertical entre fotos */
+}
+
+.foto-item img {
+    width: 100%;
+    height: auto; /* Mantiene la proporción original */
+    display: block;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.foto-item img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+}
+
+/* --- Responsividad (Para que se vea bien en celular) --- */
+
+/* Si la pantalla es mediana (Tablets o laptops chicas) */
+@media (max-width: 900px) {
+    .galeria-grid {
+        column-count: 2; /* Bajamos a 2 columnas */
+    }
+}
+
+/* Si la pantalla es chica (Celulares) */
+@media (max-width: 600px) {
+    .galeria-grid {
+        column-count: 1; /* 1 sola columna para que se vea grande */
+    }
+}
+
+/* --- Navegación (Navbar) --- */
+.navbar {
+    /* En lugar de negro puro, usamos un gris muy oscuro con transparencia (0.9) */
+    background-color: rgba(65, 65, 65, 0.9); 
+    
+    /* ESTA ES LA MAGIA: Desenfoca lo que pasa por detrás de la barra */
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); /* Para que funcione en Safari/iPhone */
+    
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    
+    /* Cambiamos el borde duro por una línea de luz muy sutil */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Sombra suave flotante */
+}
+
+.logo {
+    font-weight: bold;
+    color: #fff;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #e0e0e0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #D4AF37; /* Dorado al pasar el mouse */
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 3rem;
+    border-top: 1px solid #222;
+}
+
+/* --- Botón WhatsApp Flotante --- */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 1001;
+    transition: transform 0.3s;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+}
+
+/* --- Sección de Contacto --- */
+.contacto-container {
+    min-height: 80vh; /* Que ocupe casi toda la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.contacto-box {
+    background-color: rgba(30, 30, 30, 0.6); /* Fondo semi-transparente */
+    padding: 3rem;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 600px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); /* Efecto vidrio igual que el menú */
+}
+
+.contacto-box h2 {
+    color: #D4AF37;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.contacto-box p {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #bbb;
+}
+
+/* Estilos de los Inputs */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #ddd;
+}
+
+.input-group input, 
+.input-group textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.3); /* Input oscuro */
+    border: 1px solid #444;
+    border-radius: 6px;
+    color: white;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus, 
+.input-group textarea:focus {
+    outline: none;
+    border-color: #D4AF37; /* Se ilumina dorado al escribir */
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Botón de Enviar */
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    background-color: #D4AF37;
+    color: black;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #fff; /* Blanco al pasar el mouse */
+}
+
+/* --- ESTILOS CINEMATOGRÁFICOS --- */
+
+/* 1. La imagen de fondo */
+.hero-fullscreen {
+    /* La ruta relativa desde el CSS hacia la carpeta img */
+    background-image: url('../img/fondo_inicio.jpg'); 
+    background-size: cover; /* Escala la foto para cubrir todo sin deformar */
+    background-position: center; /* Centra lo importante de la foto */
+    height: 100vh; /* 100% de la altura de la pantalla (Viewport Height) */
+    width: 100%;
+    position: relative;
+    margin-top: -80px; /* Truco: subimos la imagen para que quede DETRÁS del menú transparente */
+}
+
+/* 2. La capa oscura (Overlay) */
+.hero-overlay {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)); /* Degradado negro */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    text-align: center;
+}
+
+/* 3. El Texto */
+.hero-content h2 {
+    font-size: 4rem; /* Texto gigante */
+    color: white;
+    font-family: 'Montserrat', sans-serif; /* Fuente moderna */
+    text-transform: uppercase;
+    letter-spacing: 5px; /* Espacio elegante entre letras */
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* Sombra para leerse bien */
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    color: #f0f0f0;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+/* 4. El Botón Dorado */
+.btn-gold {
+    padding: 15px 40px;
+    border: 2px solid #D4AF37; /* Borde dorado */
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.btn-gold:hover {
+    background-color: #D4AF37;
+    color: black;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); /* Resplandor dorado */
+}
+
+/* --- ANIMACIONES DE ENTRADA --- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-up {
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0; /* Empiezan invisibles */
+}
+
+.delay { animation-delay: 0.3s; }
+.delay-2 { animation-delay: 0.6s; }
+
+/* AJUSTE PARA MÓVIL */
+@media (max-width: 768px) {
+    .hero-content h2 { font-size: 2.5rem; }
+    .hero-content p { font-size: 1rem; }
+}
+
+/* --- ESTILOS DE GALERÍA PRO --- */
+
+/* 1. Mini Hero (Encabezado de sección) */
+.hero-mini {
+    background-image: url('../img/fondo_galeria.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 50vh; /* Mitad de pantalla solamente */
+    width: 100%;
+    position: relative;
+    margin-top: -80px; /* Para que quede detrás del menú */
+    margin-bottom: 3rem; /* Espacio antes de las fotos */
+}
+
+/* 2. Animación de "Cascada" para las fotos */
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(50px); /* Vienen desde abajo */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-scroll {
+    opacity: 0; /* Empiezan invisibles */
+    animation: slideUpFade 0.8s ease-out forwards;
+}
+
+/* 3. Efecto Hover de Lujo en las Fotos */
+.foto-item {
+    position: relative; /* Necesario para que el overlay sepa dónde ubicarse */
+    overflow: hidden; /* Para que nada se salga de los bordes redondeados */
+    border-radius: 8px;
+    break-inside: avoid;
+    margin-bottom: 20px;
+}
+
+.foto-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Capa oscura transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Invisible normalmente */
+    transition: opacity 0.3s ease;
+}
+
+.foto-overlay span {
+    color: #D4AF37;
+    border: 1px solid #D4AF37;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    background: rgba(0,0,0,0.8);
+}
+
+/* Cuando pasas el mouse por .foto-item, el .foto-overlay aparece */
+.foto-item:hover .foto-overlay {
+    opacity: 1;
+}
+
+.foto-item:hover img {
+    transform: scale(1.1); /* La foto hace zoom de fondo */
+}
+
+/* --- Estilos para Videos Verticales (Shorts) --- */
+
+.video-grid {
+    display: grid;
+    /* Usamos columnas automáticas, pero un poco más anchas (mínimo 250px) */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px;
+    padding: 0 2rem 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.video-item {
+    border-radius: 12px;
+    overflow: hidden; /* Redondea las esquinas del video */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+    background: #000; /* Fondo negro por si carga lento */
+}
+
+.video-item iframe {
+    width: 100%;
+    /* MAGIA: Esto fuerza la proporción vertical exacta de un celular */
+    aspect-ratio: 9 / 16; 
+    display: block;
+}
+
+.video-item:hover {
+    transform: translateY(-5px); /* Flota un poquito al pasar el mouse */
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2); /* Sombra dorada sutil */
+}
+
+/* --- REDES SOCIALES (Footer) --- */
+
+.social-icons {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Espacio entre iconos */
+}
+
+.social-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    
+    /* CAMBIO 1: Fondo más oscuro y visible (Gris medio) */
+    background-color: #333333; 
+    
+    /* CAMBIO 2: Borde blanco sólido y fino */
+    border: 1px solid #ffffff; 
+    
+    border-radius: 50%;
+    color: white; /* El icono será blanco */
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    
+    /* Sombra suave para que floten un poco */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+/* Efectos al pasar el Mouse (Colores Oficiales) */
+
+/* Instagram (Degradado especial) */
+.social-btn.instagram:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    transform: translateY(-5px); /* El botón salta un poquito */
+    border-color: transparent;
+}
+
+/* Facebook */
+.social-btn.facebook:hover {
+    background-color: #1877F2;
+    transform: translateY(-5px);
+    border-color: #1877F2;
+}
+
+/* YouTube */
+.social-btn.youtube:hover {
+    background-color: #FF0000;
+    transform: translateY(-5px);
+    border-color: #FF0000;
+}
+
+/* TikTok */
+.social-btn.tiktok:hover {
+    background-color: #000000;
+    text-shadow: 2px 2px 0px #FF0050, -2px -2px 0px #00F2EA; /* Efecto glitch de TikTok */
+    transform: translateY(-5px);
+    border-color: #333;
+}

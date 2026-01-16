@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Portafolio - Lys Fotografías{% endblock %}
+
+{% block content %}
+    <section class="hero-mini">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h2 class="animate-up">Mi Portafolio</h2>
+                <p class="animate-up delay">Instantes que duran para siempre</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="galeria-grid">
+        {% for foto in fotos %}
+            <div class="foto-item animate-scroll" style="animation-delay: {{ loop.index0 * 0.15 }}s;">
+                <img src="{{ url_for('static', filename='img/' + foto) }}" alt="Foto Lys">
+                
+                <div class="foto-overlay">
+                    <span>❤️ Ver</span>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+
+    </section>
+
+    <div style="text-align: center; padding: 4rem 2rem 2rem;">
+        <h2 class="animate-up">Algunos Clips </h2>
+        <p class="animate-up delay" style="color: #888;">Momentos en movimiento</p>
+    </div>
+
+    <section class="video-grid">
+        {% for video_id in videos %}
+            <div class="video-item animate-scroll">
+                <iframe 
+                    src="https://www.youtube.com/embed/{{ video_id }}" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        {% endfor %}
+    </section>
+
+{% endblock %}
