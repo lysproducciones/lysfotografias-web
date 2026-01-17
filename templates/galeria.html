@@ -1,48 +1,55 @@
 {% extends 'base.html' %}
 
-{% block title %}Portafolio - Lys Fotografías{% endblock %}
+{% block title %}Galería - Lys Fotografías{% endblock %}
 
 {% block content %}
-    <section class="hero-mini">
-        <div class="hero-overlay">
-            <div class="hero-content">
-                <h2 class="animate-up">Mi Portafolio</h2>
-                <p class="animate-up delay">Instantes que duran para siempre</p>
-            </div>
+
+<section style="padding: 100px 20px 40px; text-align: center; background: #fff;">
+    <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 10px;">Nuestra Galería</h2>
+    <p style="color: #666; max-width: 600px; margin: 0 auto;">Una selección de nuestros momentos favoritos capturados en 15 años, bodas y exteriores.</p>
+</section>
+
+<section style="background: #fff; padding-bottom: 4rem;">
+    <h3 style="text-align: center; margin-bottom: 2rem; color: #333;">📸 Fotografías</h3>
+    
+    <div class="galeria-grid">
+        <div class="foto-item">
+            <img src="{{ url_for('static', filename='img/foto1.jpg') }}" alt="Foto 1">
         </div>
-    </section>
 
-    <section class="galeria-grid">
-        {% for foto in fotos %}
-            <div class="foto-item animate-scroll" style="animation-delay: {{ loop.index0 * 0.15 }}s;">
-                <img src="{{ url_for('static', filename='img/' + foto) }}" alt="Foto Lys">
-                
-                <div class="foto-overlay">
-                    <span>❤️ Ver</span>
-                </div>
-            </div>
-        {% endfor %}
-    </section>
+        <div class="foto-item">
+            <img src="{{ url_for('static', filename='img/foto2.jpg') }}" alt="Foto 2">
+        </div>
 
-    </section>
+        <div class="foto-item">
+            <img src="{{ url_for('static', filename='img/foto3.jpg') }}" alt="Foto 3">
+        </div>
 
-    <div style="text-align: center; padding: 4rem 2rem 2rem;">
-        <h2 class="animate-up">Algunos Clips </h2>
-        <p class="animate-up delay" style="color: #888;">Momentos en movimiento</p>
+        <div class="foto-item">
+            <img src="{{ url_for('static', filename='img/foto4.jpg') }}" alt="Foto 4">
+        </div>
+
+        </div>
+</section>
+
+<section style="background: #f4f4f4; padding: 4rem 1rem;">
+    <h3 style="text-align: center; margin-bottom: 3rem; color: #333;">🎥 Shorts & Reels</h3>
+    
+    <div class="video-grid">
+        <div class="video-item">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/VIDEO_ID_1" title="Video 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <div class="video-item">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/VIDEO_ID_2" title="Video 2" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <div class="video-item">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/VIDEO_ID_3" title="Video 3" frameborder="0" allowfullscreen></iframe>
+        </div>
     </div>
+</section>
 
-    <section class="video-grid">
-        {% for video_id in videos %}
-            <div class="video-item animate-scroll">
-                <iframe 
-                    src="https://www.youtube.com/embed/{{ video_id }}" 
-                    title="YouTube video player" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-        {% endfor %}
-    </section>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
 {% endblock %}
