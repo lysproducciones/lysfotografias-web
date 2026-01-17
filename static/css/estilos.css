@@ -1,24 +1,21 @@
 /* --- Galería estilo Masonry (Pinterest) --- */
 
 .galeria-grid {
-    /* En lugar de Grid, usamos Columnas */
     column-count: 3; /* Número de columnas por defecto (PC) */
     column-gap: 20px; /* Espacio lateral entre columnas */
-    
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .foto-item {
-    /* Esto es CLAVE: evita que una foto se parta a la mitad al cambiar de columna */
     break-inside: avoid; 
-    margin-bottom: 20px; /* Espacio vertical entre fotos */
+    margin-bottom: 20px; 
 }
 
 .foto-item img {
     width: 100%;
-    height: auto; /* Mantiene la proporción original */
+    height: auto; 
     display: block;
     border-radius: 8px;
     transition: transform 0.3s ease;
@@ -31,67 +28,71 @@
     box-shadow: 0 12px 24px rgba(0,0,0,0.4);
 }
 
-/* --- Responsividad (Para que se vea bien en celular) --- */
-
-/* Si la pantalla es mediana (Tablets o laptops chicas) */
+/* --- Responsividad --- */
 @media (max-width: 900px) {
-    .galeria-grid {
-        column-count: 2; /* Bajamos a 2 columnas */
-    }
+    .galeria-grid { column-count: 2; }
 }
 
-/* Si la pantalla es chica (Celulares) */
 @media (max-width: 600px) {
-    .galeria-grid {
-        column-count: 1; /* 1 sola columna para que se vea grande */
-    }
+    .galeria-grid { column-count: 1; }
 }
 
-/* --- Navegación (Navbar) --- */
+/* --- Navegación (Navbar) - ESTILO VIDRIO AHUMADO --- */
+/* --- Navegación (Navbar) CENTRADA --- */
 .navbar {
-    /* En lugar de negro puro, usamos un gris muy oscuro con transparencia (0.9) */
-    background-color: rgba(65, 65, 65, 0.9); 
-    
-    /* ESTA ES LA MAGIA: Desenfoca lo que pasa por detrás de la barra */
+    /* Efecto Vidrio */
+    background-color: rgba(0, 0, 0, 0.7) !important; 
     backdrop-filter: blur(10px); 
-    -webkit-backdrop-filter: blur(10px); /* Para que funcione en Safari/iPhone */
+    -webkit-backdrop-filter: blur(10px); 
     
-    padding: 1rem 2rem;
+    height: 80px; /* Altura fija para centrar bien */
+    width: 100%;
+    
+    /* Flexbox para centrar el logo */
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center; /* Esto centra el logo horizontalmente */
+    align-items: center;     /* Esto centra verticalmente */
+    
     position: sticky;
     top: 0;
     z-index: 1000;
-    
-    /* Cambiamos el borde duro por una línea de luz muy sutil */
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Sombra suave flotante */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
     font-weight: bold;
     color: #fff;
-    font-size: 1.2rem;
-    letter-spacing: 2px;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #e0e0e0;
-    font-size: 0.9rem;
+    font-size: 1.5rem; /* Un poco más grande para destacar */
+    letter-spacing: 4px; /* Más espacio entre letras = más elegancia */
     text-transform: uppercase;
+    font-family: 'Playfair Display', serif; /* Fuente elegante */
+}
+
+/* Los iconos del menú */
+.nav-socials {
+    position: absolute; /* Se salen del flujo para no empujar el logo */
+    right: 2rem; /* Pegados a la derecha */
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.nav-socials a {
+    color: white;
+    font-size: 1.2rem;
     transition: color 0.3s;
 }
 
-.nav-links a:hover {
-    color: #D4AF37; /* Dorado al pasar el mouse */
+.nav-socials a:hover {
+    color: #D4AF37;
+}
+
+/* Ajuste móvil: En pantallas muy chicas, bajamos los iconos o ajustamos */
+@media (max-width: 600px) {
+    .logo { font-size: 1.1rem; letter-spacing: 2px; }
+    .nav-socials { right: 1rem; gap: 10px; }
+    .nav-socials a { font-size: 1rem; }
 }
 
 /* --- Footer --- */
@@ -124,121 +125,35 @@ footer {
     transform: scale(1.1);
 }
 
-/* --- Sección de Contacto --- */
-.contacto-container {
-    min-height: 80vh; /* Que ocupe casi toda la pantalla */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-}
-
-.contacto-box {
-    background-color: rgba(30, 30, 30, 0.6); /* Fondo semi-transparente */
-    padding: 3rem;
-    border-radius: 15px;
-    width: 100%;
-    max-width: 600px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px); /* Efecto vidrio igual que el menú */
-}
-
-.contacto-box h2 {
-    color: #D4AF37;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.contacto-box p {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #bbb;
-}
-
-/* Estilos de los Inputs */
-.input-group {
-    margin-bottom: 20px;
-}
-
-.input-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 0.9rem;
-    color: #ddd;
-}
-
-.input-group input, 
-.input-group textarea {
-    width: 100%;
-    padding: 12px;
-    background-color: rgba(0, 0, 0, 0.3); /* Input oscuro */
-    border: 1px solid #444;
-    border-radius: 6px;
-    color: white;
-    font-family: inherit;
-    transition: border-color 0.3s;
-}
-
-.input-group input:focus, 
-.input-group textarea:focus {
-    outline: none;
-    border-color: #D4AF37; /* Se ilumina dorado al escribir */
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-/* Botón de Enviar */
-.btn-submit {
-    width: 100%;
-    padding: 15px;
-    background-color: #D4AF37;
-    color: black;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: background 0.3s;
-}
-
-.btn-submit:hover {
-    background-color: #fff; /* Blanco al pasar el mouse */
-}
-
-/* --- ESTILOS CINEMATOGRÁFICOS --- */
-
-/* 1. La imagen de fondo */
+/* --- Estilos Cinemáticos (Hero) --- */
 .hero-fullscreen {
-    /* La ruta relativa desde el CSS hacia la carpeta img */
     background-image: url('../img/fondo_inicio.jpg'); 
-    background-size: cover; /* Escala la foto para cubrir todo sin deformar */
-    background-position: center; /* Centra lo importante de la foto */
-    height: 100vh; /* 100% de la altura de la pantalla (Viewport Height) */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
     width: 100%;
     position: relative;
-    margin-top: -80px; /* Truco: subimos la imagen para que quede DETRÁS del menú transparente */
+    margin-top: -80px; 
 }
 
-/* 2. La capa oscura (Overlay) */
 .hero-overlay {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)); /* Degradado negro */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)); 
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: center; /* Centrado horizontal */
-    align-items: center; /* Centrado vertical */
+    justify-content: center;
+    align-items: center;
     text-align: center;
 }
 
-/* 3. El Texto */
 .hero-content h2 {
-    font-size: 4rem; /* Texto gigante */
+    font-size: 4rem;
     color: white;
-    font-family: 'Montserrat', sans-serif; /* Fuente moderna */
+    font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
-    letter-spacing: 5px; /* Espacio elegante entre letras */
+    letter-spacing: 5px;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* Sombra para leerse bien */
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
 }
 
 .hero-content p {
@@ -248,10 +163,10 @@ footer {
     font-weight: 300;
 }
 
-/* 4. El Botón Dorado */
+/* Botón Dorado */
 .btn-gold {
     padding: 15px 40px;
-    border: 2px solid #D4AF37; /* Borde dorado */
+    border: 2px solid #D4AF37;
     color: white;
     text-decoration: none;
     text-transform: uppercase;
@@ -264,10 +179,10 @@ footer {
 .btn-gold:hover {
     background-color: #D4AF37;
     color: black;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); /* Resplandor dorado */
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
 }
 
-/* --- ANIMACIONES DE ENTRADA --- */
+/* Animaciones */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
@@ -275,189 +190,97 @@ footer {
 
 .animate-up {
     animation: fadeInUp 1s ease forwards;
-    opacity: 0; /* Empiezan invisibles */
+    opacity: 0;
 }
 
 .delay { animation-delay: 0.3s; }
 .delay-2 { animation-delay: 0.6s; }
 
-/* AJUSTE PARA MÓVIL */
 @media (max-width: 768px) {
     .hero-content h2 { font-size: 2.5rem; }
     .hero-content p { font-size: 1rem; }
 }
 
-/* --- ESTILOS DE GALERÍA PRO --- */
-
-/* 1. Mini Hero (Encabezado de sección) */
-.hero-mini {
-    background-image: url('../img/fondo_galeria.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 50vh; /* Mitad de pantalla solamente */
-    width: 100%;
-    position: relative;
-    margin-top: -80px; /* Para que quede detrás del menú */
-    margin-bottom: 3rem; /* Espacio antes de las fotos */
+/* --- Sección Servicios y Zoom --- */
+.services-section { 
+    padding: 4rem 1rem; 
+    background-color: #f9f9f9; 
+    text-align: center; 
 }
 
-/* 2. Animación de "Cascada" para las fotos */
-@keyframes slideUpFade {
-    from {
-        opacity: 0;
-        transform: translateY(50px); /* Vienen desde abajo */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.services-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 2rem; 
+    max-width: 1200px; 
+    margin: 0 auto; 
 }
 
-.animate-scroll {
-    opacity: 0; /* Empiezan invisibles */
-    animation: slideUpFade 0.8s ease-out forwards;
+/* Tarjeta Normal */
+.service-card { 
+    background: white; 
+    padding: 2rem; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    text-align: left; 
+    cursor: pointer;
 }
 
-/* 3. Efecto Hover de Lujo en las Fotos */
-.foto-item {
-    position: relative; /* Necesario para que el overlay sepa dónde ubicarse */
-    overflow: hidden; /* Para que nada se salga de los bordes redondeados */
-    border-radius: 8px;
-    break-inside: avoid;
-    margin-bottom: 20px;
+.service-card:hover { 
+    transform: translateY(-5px); 
+    border-bottom: 4px solid #d4af37; 
 }
 
-.foto-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Capa oscura transparente */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0; /* Invisible normalmente */
-    transition: opacity 0.3s ease;
+/* Estado "Agrandado" (Zoom) */
+.service-card.zoomed {
+    transform: scale(1.15); 
+    z-index: 100; 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3); 
+    border: 2px solid #d4af37; /* Borde Dorado */
+    background-color: #fff;
 }
 
-.foto-overlay span {
-    color: #D4AF37;
-    border: 1px solid #D4AF37;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    background: rgba(0,0,0,0.8);
+/* Efecto desenfoque del fondo al hacer zoom */
+body.card-active .service-card:not(.zoomed) {
+    opacity: 0.5;
+    filter: blur(2px);
 }
 
-/* Cuando pasas el mouse por .foto-item, el .foto-overlay aparece */
-.foto-item:hover .foto-overlay {
-    opacity: 1;
+.service-card h3 { 
+    color: #333; 
+    margin-bottom: 1rem; 
+    font-family: 'Playfair Display', serif; 
 }
 
-.foto-item:hover img {
-    transform: scale(1.1); /* La foto hace zoom de fondo */
-}
+.service-card ul { padding-left: 20px; color: #666; }
+.service-card li { margin-bottom: 0.5rem; }
 
-/* --- Estilos para Videos Verticales (Shorts) --- */
-
-.video-grid {
-    display: grid;
-    /* Usamos columnas automáticas, pero un poco más anchas (mínimo 250px) */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 30px;
-    padding: 0 2rem 4rem;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.video-item {
-    border-radius: 12px;
-    overflow: hidden; /* Redondea las esquinas del video */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
-    background: #000; /* Fondo negro por si carga lento */
-}
-
-.video-item iframe {
-    width: 100%;
-    /* MAGIA: Esto fuerza la proporción vertical exacta de un celular */
-    aspect-ratio: 9 / 16; 
-    display: block;
-}
-
-.video-item:hover {
-    transform: translateY(-5px); /* Flota un poquito al pasar el mouse */
-    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2); /* Sombra dorada sutil */
-}
-
-/* --- REDES SOCIALES (Footer) --- */
-
-.social-icons {
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 15px; /* Espacio entre iconos */
-}
-
-.social-btn {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
+/* --- Pasos a Seguir (Estilo Vidrio) --- */
+.steps-section { 
+    padding: 4rem 1rem; 
+    /* El mismo estilo vidrio que el navbar */
+    background-color: rgba(0, 0, 0, 0.7) !important; 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     
-    /* CAMBIO 1: Fondo más oscuro y visible (Gris medio) */
-    background-color: #333333; 
-    
-    /* CAMBIO 2: Borde blanco sólido y fino */
-    border: 1px solid #ffffff; 
-    
-    border-radius: 50%;
-    color: white; /* El icono será blanco */
-    font-size: 1.2rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    
-    /* Sombra suave para que floten un poco */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    color: white !important; 
+    text-align: center; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Efectos al pasar el Mouse (Colores Oficiales) */
-
-/* Instagram (Degradado especial) */
-.social-btn.instagram:hover {
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-    transform: translateY(-5px); /* El botón salta un poquito */
-    border-color: transparent;
+.step-box { 
+    max-width: 800px; 
+    margin: 0 auto; 
+    line-height: 1.8; 
 }
 
-/* Facebook */
-.social-btn.facebook:hover {
-    background-color: #1877F2;
-    transform: translateY(-5px);
-    border-color: #1877F2;
+.highlight { 
+    color: #d4af37; 
+    font-weight: bold; 
 }
 
-/* YouTube */
-.social-btn.youtube:hover {
-    background-color: #FF0000;
-    transform: translateY(-5px);
-    border-color: #FF0000;
-}
-
-/* TikTok */
-.social-btn.tiktok:hover {
-    background-color: #000000;
-    text-shadow: 2px 2px 0px #FF0050, -2px -2px 0px #00F2EA; /* Efecto glitch de TikTok */
-    transform: translateY(-5px);
-    border-color: #333;
-}
-
-/* --- ESTILOS NUEVOS PARA INICIO --- */
-
-/* Sección Galería Destacada */
+/* --- Galería Destacada --- */
 .gallery-preview-section { 
     padding: 4rem 1rem; 
     text-align: center; 
@@ -486,70 +309,7 @@ footer {
     box-shadow: 0 10px 20px rgba(0,0,0,0.2); 
 }
 
-/* Sección Servicios */
-.services-section { 
-    padding: 4rem 1rem; 
-    background-color: #f9f9f9; 
-    text-align: center; 
-}
-
-.services-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 2rem; 
-    max-width: 1200px; 
-    margin: 0 auto; 
-}
-
-.service-card { 
-    background: white; 
-    padding: 2rem; 
-    border-radius: 10px; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-    transition: transform 0.3s ease; 
-    text-align: left; 
-}
-
-.service-card:hover { 
-    transform: translateY(-5px); 
-    border-bottom: 4px solid #d4af37; 
-}
-
-.service-card h3 { 
-    color: #333; 
-    margin-bottom: 1rem; 
-    font-family: 'Playfair Display', serif; 
-}
-
-.service-card ul { 
-    padding-left: 20px; 
-    color: #666; 
-}
-
-.service-card li { 
-    margin-bottom: 0.5rem; 
-}
-
-/* Pasos a Seguir */
-.steps-section { 
-    padding: 4rem 1rem; 
-    background-color: #222; 
-    color: white; 
-    text-align: center; 
-}
-
-.step-box { 
-    max-width: 800px; 
-    margin: 0 auto; 
-    line-height: 1.8; 
-}
-
-.highlight { 
-    color: #d4af37; 
-    font-weight: bold; 
-}
-
-/* Redes y Contacto */
+/* --- Redes y Contacto --- */
 .contact-section { 
     padding: 4rem 1rem; 
     max-width: 800px; 
@@ -587,23 +347,9 @@ footer {
     border: 2px solid #25D366; 
 }
 
-.form-group { 
-    margin-bottom: 1rem; 
-    text-align: left; 
-}
-
-.form-group label { 
-    display: block; 
-    margin-bottom: 0.5rem; 
-    font-weight: bold; 
-}
-
-.form-control { 
-    width: 100%; 
-    padding: 10px; 
-    border: 1px solid #ddd; 
-    border-radius: 5px; 
-}
+.form-group { margin-bottom: 1rem; text-align: left; }
+.form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; }
+.form-control { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
 
 .btn-whatsapp { 
     background-color: #25D366; 
@@ -617,59 +363,72 @@ footer {
     font-weight: bold; 
 }
 
-.btn-whatsapp:hover { 
-    background-color: #1ebe57; 
+.btn-whatsapp:hover { background-color: #1ebe57; }
+
+/* --- REDES SOCIALES (Footer y Nav) --- */
+.social-icons {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px; 
 }
 
-/* --- NUEVOS CAMBIOS DE COLOR Y EFECTOS --- */
-
-/* 1. Color Azul estilo Facebook para el Menú y la Sección del Medio */
-.navbar, .steps-section {
-    background-color: #535353a8 !important; /* Azul Facebook Vibrante */
-    color: white !important;
-}
-
-/* Aseguramos que los enlaces del menú se vean bien sobre azul */
-.nav-links a {
-    color: white !important;
-}
-
-/* 2. Clase para agrandar la tarjeta al hacer clic */
-.service-card {
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto rebote suave */
-    cursor: pointer; /* Manito al pasar el mouse */
-}
-
-/* Estado "Agrandado" */
-.service-card.zoomed {
-    transform: scale(1.15); /* Aumenta un 15% */
-    z-index: 100; /* Se pone por encima de todo */
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3); /* Sombra más fuerte */
-    border: 2px solid #1877F2; /* Borde azul */
-    background-color: #fff;
-}
-
-/* Oscurecer el resto cuando una tarjeta se agranda (opcional, detalle pro) */
-body.card-active .service-card:not(.zoomed) {
-    opacity: 0.5;
-    filter: blur(2px);
-}
-
-/* --- ARREGLO DEL ÍCONO DE YOUTUBE --- */
-.social-btn.youtube {
-    background-color: #FF0000; /* Rojo oficial de YouTube */
-    color: white;
-    /* Aseguramos que tenga el mismo tamaño y forma que los otros */
-    width: 40px; 
-    height: 40px;
-    line-height: 40px;
+.social-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #333333; 
+    border: 1px solid #ffffff; 
     border-radius: 50%;
-    text-align: center;
-    display: inline-block;
-    transition: transform 0.3s;
+    color: white; 
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
 
-.social-btn.youtube:hover {
-    background-color: #cc0000; /* Rojo más oscuro al pasar el mouse */
+.social-btn.instagram:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    transform: translateY(-5px);
+    border-color: transparent;
+}
+
+.social-btn.facebook:hover {
+    background-color: #1877F2;
+    transform: translateY(-5px);
+    border-color: #1877F2;
+}
+
+.social-btn.tiktok:hover {
+    background-color: #000000;
+    transform: translateY(-5px);
+    border-color: #333;
+}
+
+/* --- YOUTUBE FIX DEFINITIVO --- */
+/* Esta regla fuerza al botón de YouTube a ser rojo y redondo */
+footer .social-btn.youtube, 
+.nav-socials a[href*="youtube"] {
+    background-color: #FF0000 !important; /* Rojo YouTube */
+    color: white !important;
+    width: 40px;
+    height: 40px;
+    
+    /* Centrado Perfecto */
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+    
+    border-radius: 50%; 
+    margin: 0 5px; 
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+footer .social-btn.youtube:hover,
+.nav-socials a[href*="youtube"]:hover {
+    background-color: #cc0000 !important;
     transform: translateY(-3px);
 }
