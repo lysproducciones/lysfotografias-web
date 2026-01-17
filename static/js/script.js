@@ -35,3 +35,36 @@ function toggleZoom(card) {
         document.body.classList.add('card-active');
     }
 }
+
+/* --- static/js/script.js --- */
+
+// ... (Aquí están tus funciones anteriores, déjalas igual) ...
+
+// 3. NUEVA FUNCIÓN: Formulario de Contacto Principal a WhatsApp
+function enviarFormularioWhatsApp() {
+    // 1. Buscamos los datos por su ID
+    var nombre = document.getElementById('contact-nombre').value;
+    var email = document.getElementById('contact-email').value;
+    var mensaje = document.getElementById('contact-mensaje').value;
+    
+    // Tu número (sin + ni espacios)
+    var telefono = "5493425238973"; 
+
+    // 2. Validación simple: Si no puso nombre, le avisamos
+    if (nombre === "") {
+        alert("Por favor, dinos tu nombre para poder atenderte mejor 😊");
+        return;
+    }
+
+    // 3. Armamos el mensaje bonito
+    // %0A significa "Salto de línea" (Enter)
+    var textoFinal = 
+        "Hola Lys! 👋 Vengo de tu página web." + 
+        "%0A%0A*Nombre:* " + nombre + 
+        "%0A*Email:* " + email + 
+        "%0A*Consulta:* " + mensaje;
+
+    // 4. Abrimos WhatsApp
+    var link = "https://wa.me/" + telefono + "?text=" + textoFinal;
+    window.open(link, '_blank');
+}

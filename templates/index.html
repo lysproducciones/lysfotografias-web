@@ -145,30 +145,35 @@
     </div>
 </section>
 
+
+            
 <section id="contacto" class="contact-parallax">
     <div class="contact-overlay">
         <div class="glass-form-container">
             <h2 class="gold-title">Hablemos de tu Evento</h2>
             <p class="white-text">Reserva tu fecha con anticipación.</p>
             
-            <form action="/contacto" method="POST" class="modern-form">
+            <div class="modern-form">
                 <div class="input-group">
-                    <input type="text" name="nombre" required placeholder=" ">
+                    <input type="text" id="contact-nombre" required placeholder=" ">
                     <label>Tu Nombre</label>
                 </div>
                 
                 <div class="input-group">
-                    <input type="email" name="email" required placeholder=" ">
+                    <input type="email" id="contact-email" required placeholder=" ">
                     <label>Tu Email</label>
                 </div>
                 
                 <div class="input-group">
-                    <textarea name="mensaje" rows="4" required placeholder=" "></textarea>
+                    <textarea id="contact-mensaje" rows="4" required placeholder=" "></textarea>
                     <label>Cuéntanos tu idea...</label>
                 </div>
 
-                <button type="submit" class="btn-gold-filled">ENVIAR CONSULTA</button>
-            </form>
+                <button type="button" class="btn-gold-filled" onclick="enviarFormularioWhatsApp()">ENVIAR A WHATSAPP <i class="fab fa-whatsapp"></i></button>
+            </div>
+        </div>
+    </div>
+</section>
         </div>
     </div>
 </section>
