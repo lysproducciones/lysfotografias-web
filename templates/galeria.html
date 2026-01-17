@@ -13,42 +13,28 @@
     <h3 style="text-align: center; margin-bottom: 2rem; color: #333;">📸 Fotografías</h3>
     
     <div class="galeria-grid">
-        <div class="foto-item">
-            <img src="{{ url_for('static', filename='img/foto1.jpg') }}" alt="Foto 1">
-        </div>
+    
+    {% for link in fotos %}
+    <div class="foto-item">
+        <img src="{{ link }}" alt="Fotografía Lys" loading="lazy">
+    </div>
+    {% endfor %}
 
-        <div class="foto-item">
-            <img src="{{ url_for('static', filename='img/foto2.jpg') }}" alt="Foto 2">
-        </div>
-
-        <div class="foto-item">
-            <img src="{{ url_for('static', filename='img/foto3.jpg') }}" alt="Foto 3">
-        </div>
-
-        <div class="foto-item">
-            <img src="{{ url_for('static', filename='img/foto4.jpg') }}" alt="Foto 4">
-        </div>
-
-        </div>
+</div>
 </section>
 
 <section style="background: #f4f4f4; padding: 4rem 1rem;">
     <h3 style="text-align: center; margin-bottom: 3rem; color: #333;">🎥 Shorts & Reels</h3>
     
     <div class="video-grid">
-
-        <div class="video-item">
-            <iframe  src="https://www.youtube.com/embed/OLV6Apw3yZ0" title="Video 1" frameborder="0"  allowfullscreen></iframe>
-        </div>
-
-        <div class="video-item">
-            <iframe  src="https://www.youtube.com/embed/mPSoo_1ran0" title="Video 2" frameborder="0" allowfullscreen></iframe>
-        </div>
-
-        <div class="video-item">
-            <iframe  src="https://www.youtube.com/embed/nxjdUkbFv8g" title="Video 3" frameborder="0" allowfullscreen></iframe>
-        </div>
+    
+    {% for video in videos %}
+    <div class="video-item">
+        <iframe src="{{ video }}" title="Short de YouTube" allowfullscreen></iframe>
     </div>
+    {% endfor %}
+
+</div>
 </section>
 
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>
