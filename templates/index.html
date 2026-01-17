@@ -3,13 +3,156 @@
 {% block title %}Inicio - Lys Fotografías{% endblock %}
 
 {% block content %}
-    <section class="hero-fullscreen">
-        <div class="hero-overlay">
-            <div class="hero-content">
-                <h2 class="animate-up">Capturando momentos únicos</h2>
-                <p class="animate-up delay">Especialistas en 15 Años y Bodas</p>
-                <a href="/galeria" class="btn-gold animate-up delay-2">Ver Portafolio</a>
-            </div>
+
+<style>
+    /* Sección de Servicios */
+    .services-section { padding: 4rem 1rem; background-color: #f9f9f9; text-align: center; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+    .service-card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease; text-align: left; }
+    .service-card:hover { transform: translateY(-5px); border-bottom: 4px solid #d4af37; }
+    .service-card h3 { color: #333; margin-bottom: 1rem; font-family: 'Playfair Display', serif; }
+    .service-card ul { padding-left: 20px; color: #666; }
+    .service-card li { margin-bottom: 0.5rem; }
+
+    /* Sección Pasos a Seguir */
+    .steps-section { padding: 4rem 1rem; background-color: #222; color: white; text-align: center; }
+    .step-box { max-width: 800px; margin: 0 auto; line-height: 1.8; }
+    .highlight { color: #d4af37; font-weight: bold; }
+
+    /* Sección Redes y Contacto */
+    .contact-section { padding: 4rem 1rem; max-width: 800px; margin: 0 auto; text-align: center; }
+    .social-buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+    .btn-social { padding: 10px 20px; border-radius: 50px; text-decoration: none; color: white; font-weight: bold; transition: opacity 0.3s; }
+    .btn-insta { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+    .btn-face { background: #3b5998; }
+    .btn-tiktok { background: #000000; border: 1px solid #333; }
+    
+    /* Formulario WhatsApp */
+    .whatsapp-form { background: #fff; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border: 2px solid #25D366; }
+    .form-group { margin-bottom: 1rem; text-align: left; }
+    .form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; }
+    .form-control { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+    .btn-whatsapp { background-color: #25D366; color: white; padding: 12px 30px; border: none; border-radius: 5px; font-size: 1.1rem; cursor: pointer; width: 100%; font-weight: bold; }
+    .btn-whatsapp:hover { background-color: #1ebe57; }
+</style>
+
+<section class="hero-fullscreen">
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h2 class="animate-up">Capturando momentos únicos</h2>
+            <p class="animate-up delay">Especialistas en 15 Años y Bodas</p>
+            <a href="#contacto" class="btn-gold animate-up delay-2">Reservar Fecha</a>
         </div>
-    </section>
+    </div>
+</section>
+
+<section class="services-section">
+    <h2 style="margin-bottom: 2rem; color: #333;">Nuestros Servicios</h2>
+    
+    <div class="services-grid">
+        <div class="service-card">
+            <h3>📸 Fotografía Integral de 15</h3>
+            <p><strong>1. Book de Noche:</strong> Exteriores con el vestido (generalmente de noche, puede ser un día distinto a la fiesta).</p>
+            <p><strong>2. Cobertura del Evento:</strong> Captura total de la fiesta incluyendo:</p>
+            <ul>
+                <li>Vals y Ceremonia de velas</li>
+                <li>Mesas y Living</li>
+                <li>Corte de torta y Cotillón</li>
+                <li>Todos los momentos planificados.</li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <h3>🎥 Videofilmación Profesional</h3>
+            <p>Servicio en exteriores y evento principal. Se entrega un video post-fiesta con:</p>
+            <ul>
+                <li>Grabación de todo el transcurso del evento.</li>
+                <li>Edición profesional de los momentos más importantes.</li>
+                <li>Calidad digital.</li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <h3>🎬 Videoclip para Pantalla</h3>
+            <p>Realizado tiempo antes de la fiesta para proyectar en pantalla gigante. Consta de 4 partes:</p>
+            <ul>
+                <li>Fotos del recuerdo.</li>
+                <li>Video divertido con amigos.</li>
+                <li>Video Teen Models.</li>
+                <li>Video de saludos familiares.</li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <h3>🌿 Book Diurno / Exteriores</h3>
+            <p>Sesión inolvidable pensada para resaltar tu personalidad y estilo.</p>
+            <ul>
+                <li>Luz natural en locaciones a elección (parques, urbano, etc).</li>
+                <li>Cambios de vestuario incluidos.</li>
+                <li>Ideal para tarjetas de invitación o decoración.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="steps-section">
+    <h2>¿Ya te decidiste? 👍</h2>
+    <div class="step-box">
+        <p>1. <strong>Conoce nuestro trabajo:</strong> Visita nuestras redes para ver la calidad de nuestra fotografía 😊.</p>
+        <p>2. <strong>Sácate las dudas:</strong> Nos encanta ayudar y aconsejar en todo lo que necesites 😄.</p>
+        <p>3. <strong>Reserva:</strong> Una vez decidido, puedes reservar la fecha con una <span class="highlight">seña a tu comodidad</span>.</p>
+        <p>El saldo lo vas abonando hasta la fecha del evento.</p>
+    </div>
+</section>
+
+<section id="contacto" class="contact-section">
+    <h2>Síguenos en Redes</h2>
+    <div class="social-buttons">
+        <a href="https://www.instagram.com/lysfotografias/" target="_blank" class="btn-social btn-insta">Instagram</a>
+        <a href="https://www.facebook.com/lysfotografias/" target="_blank" class="btn-social btn-face">Facebook Lys</a>
+        <a href="https://www.facebook.com/lasfotosdemifiesta" target="_blank" class="btn-social btn-face">Facebook Fiesta</a>
+        <a href="https://www.tiktok.com/@lysfotografias" target="_blank" class="btn-social btn-tiktok">TikTok</a>
+    </div>
+
+    <h2>Contáctame por WhatsApp</h2>
+    <p>Escríbeme para más información o para reservar tu sesión. ¡Cupos limitados!</p>
+    
+    <div class="whatsapp-form">
+        <div class="form-group">
+            <label for="nombre">Tu Nombre:</label>
+            <input type="text" id="nombre" class="form-control" placeholder="Ej: María Pérez">
+        </div>
+        <div class="form-group">
+            <label for="mensaje">¿Qué te gustaría consultar?</label>
+            <textarea id="mensaje" class="form-control" rows="4" placeholder="Hola, quisiera saber presupuesto para un 15 años..."></textarea>
+        </div>
+        <button onclick="enviarWhatsApp()" class="btn-whatsapp">Enviar Mensaje 💬</button>
+    </div>
+</section>
+
+<script>
+    function enviarWhatsApp() {
+        // 1. Obtenemos los datos que escribió el cliente
+        var nombre = document.getElementById('nombre').value;
+        var mensaje = document.getElementById('mensaje').value;
+
+        // 2. Tu número (Código país 549 + Area 342 + Numero)
+        var telefono = "5493425238973";
+
+        // 3. Validamos que haya escrito algo
+        if (nombre === "") {
+            alert("Por favor, escribe tu nombre.");
+            return;
+        }
+
+        // 4. Creamos el link mágico
+        // El formato es: https://wa.me/NUMERO?text=MENSAJE
+        var textoFinal = "Hola Lys, soy " + nombre + ". " + mensaje;
+        var link = "https://wa.me/" + telefono + "?text=" + encodeURIComponent(textoFinal);
+
+        // 5. Abrimos WhatsApp en una nueva pestaña
+        window.open(link, '_blank');
+    }
+</script>
+
 {% endblock %}
