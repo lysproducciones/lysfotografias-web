@@ -9,6 +9,15 @@ FOTOS_GALERIA = [
     "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627925/UMA_MI_FIESTA-204_yjqxkp.jpg",
     "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627487/UMA_NOCHE-117_uu0els.jpg",
     "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628067/UMA_MI_FIESTA-447_pa1x3v.jpg",
+    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627486/BOOK_UMA-186_ffcdkv.jpg",
+    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627475/BOOK_UMA-156_tyafvw.jpg",
+    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627463/BOOK_UMA-161_szlpz6.jpg",
+    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627453/BOOK_UMA-64_rebmek.jpg",
+    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627450/BOOK_UMA-27_qseah8.jpg",
+    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627452/BOOK_UMA-93_lx3ane.jpg",
+    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627450/BOOK_UMA-11_aooaaa.jpg",
+    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627463/BOOK_UMA-161_szlpz6.jpg",
+    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627486/UMA_NOCHE-30_orsp2s.jpg"
     # ... agrega todas las que quieras, separadas por coma
 ]
 
