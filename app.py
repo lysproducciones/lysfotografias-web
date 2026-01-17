@@ -1,62 +1,105 @@
 from flask import Flask, render_template
+from datetime import datetime  # Importamos para calcular la fecha
 
 app = Flask(__name__)
 
-# --- LISTAS DE CONTENIDO ---
+# --- CONFIGURACIÓN ---
+ANIO_FUNDACION = 2010  # Año que comenzaste (para calcular los 16 años)
 
-# 1. FOTOS: Pega aquí los links que copiaste de Cloudinary
+# --- 1. DATOS DE GALERÍA (FOTOS Y VIDEOS) ---
+# (Recuerda pegar aquí tus links reales de Cloudinary y YouTube)
 FOTOS_GALERIA = [
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627925/UMA_MI_FIESTA-204_yjqxkp.jpg",
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627487/UMA_NOCHE-117_uu0els.jpg",
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628067/UMA_MI_FIESTA-447_pa1x3v.jpg",
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627486/BOOK_UMA-186_ffcdkv.jpg",
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627475/BOOK_UMA-156_tyafvw.jpg",
-    
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627453/BOOK_UMA-64_rebmek.jpg",
-   
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628802/AGUSTINA_BOOK-84_vexah0.jpg",
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628801/AGUSTINA_BOOK-71_nt9wt4.jpg",
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628828/AGUSTINA_BOOK-184_fvp5vh.jpg",
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628790/AGUSTINA_BOOK-107_ojt95z.jpg",
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628781/AGUSTINA_BOOK-82_ti9e3u.jpg",
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628770/AGUSTINA_BOOK-25_h7bo4l.jpg",
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628791/AGUSTINA_BOOK-50_gyo5pg.jpg",
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628839/AGUSTINA_BOOK-137_e1ga7d.jpg",
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628843/AGUSTINA_BOOK-228_nrddrd.jpg",
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628841/AGUSTINA_BOOK-238_uupeyb.jpg",
-     "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627450/BOOK_UMA-27_qseah8.jpg",
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627452/BOOK_UMA-93_lx3ane.jpg",
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627450/BOOK_UMA-11_aooaaa.jpg",
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627463/BOOK_UMA-161_szlpz6.jpg",
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627486/UMA_NOCHE-30_orsp2s.jpg",
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628843/AGUSTINA_BOOK-121_laqoi6.jpg",
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628844/AGUSTINA_BOOK-254_mnbl5y.jpg",
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628857/AGUSTINA_BOOK-297_m9boms.jpg",
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628849/AGUSTINA_BOOK-280_gpdrar.jpg",
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628848/AGUSTINA_BOOK-300_vnlgsv.jpg",
-    # ... agrega todas las que quieras, separadas por coma
+    "https://res.cloudinary.com/tu_usuario/image/upload/v1234/ejemplo_boda.jpg",
+    "https://res.cloudinary.com/tu_usuario/image/upload/v1234/ejemplo_15.jpg",
+    "https://res.cloudinary.com/tu_usuario/image/upload/v1234/ejemplo_paisaje.jpg",
 ]
 
-# 2. SHORTS: Los IDs o Links Embed de tus videos de YouTube
 VIDEOS_SHORTS = [
-    "https://www.youtube.com/embed/OLV6Apw3yZ0",
-    "https://www.youtube.com/embed/mPSoo_1ran0",
-    "https://www.youtube.com/embed/nxjdUkbFv8g"
+    "https://www.youtube.com/embed/46xHtysRN1o",
+    "https://www.youtube.com/embed/-Lw84mKsEbM",
+    "https://www.youtube.com/embed/EphkGaqidQE",
 ]
+
+# --- 2. DATOS DE TESTIMONIOS (REALES DE GOOGLE) ---
+# --- DATOS DE TESTIMONIOS (REALES + NUEVOS) ---
+TESTIMONIOS_CLIENTES = [
+    {
+        "nombre": "Analia Benvenuti",
+        "evento": "Graduación Escolar",
+        "comentario": "Excelente trabajo! Realmente las ideas para los chicos, para los padres, el trabajo en la escuela, la recepción y la colación, muy bueno. Gracias por dejarnos semejante recuerdo! 🤩",
+        "estrellas": 5
+    },
+    {
+        "nombre": "Lula Gigliotti",
+        "evento": "Book Adolescente",
+        "comentario": "Excelente profesional. Muy atento, muy dedicado y sobre todo gracias por la paciencia (con mi adolescente). Desde 2016 eligiendo sus trabajos!",
+        "estrellas": 5
+    },
+    {
+        "nombre": "Conrado Lallana",
+        "evento": "Foto y Video",
+        "comentario": "Excelente trabajo!! Profesional! Los vídeos buenísimos muy originales y las fotos espectaculares!!!!",
+        "estrellas": 5
+    },
+    {
+        "nombre": "Carina Romero",
+        "evento": "Evento Social",
+        "comentario": "Estamos muy felices y agradecidos por la buena onda y la predisposición en todo lo que fue el servicio. Muy recomendable gracias!!! A Carlos y su familia.",
+        "estrellas": 5
+    },
+    {
+        "nombre": "Marisa Muñoz",
+        "evento": "Cliente Feliz",
+        "comentario": "Excelente trabajo muchísima dedicación, muy conformes, gracias.",
+        "estrellas": 5
+    },
+    # --- AQUI EMPIEZAN LOS 4 NUEVOS ---
+    {
+        "nombre": "Cintia Mangold",
+        "evento": "Fiesta de 15",
+        "comentario": "¡Muy bueno!!! La verdad que pasamos una noche increíble y ustedes capturaron todo perfecto. Súper recomendables.",
+        "estrellas": 5
+    },
+    {
+        "nombre": "Familia López",
+        "evento": "Boda",
+        "comentario": "Teníamos miedo de sentirnos incómodos con las cámaras, pero tienen una onda increíble. Nos hicieron reír y disfrutar cada foto. ¡Gracias totales!",
+        "estrellas": 5
+    },
+    {
+        "nombre": "Sofi y Agus",
+        "evento": "Book Exterior",
+        "comentario": "Amamos el video de cronología, parecía una película de cine. Mis amigas no paraban de preguntarme quién me había sacado las fotos. ¡Unos genios!",
+        "estrellas": 5
+    },
+    {
+        "nombre": "Graciela T.",
+        "evento": "15 años",
+        "comentario": "Cumplieron con todo lo pactado y los tiempos de entrega fueron rapidísimos. La calidad del álbum impreso es hermosa. Sin dudas los volveremos a elegir.",
+        "estrellas": 5
+    }
+]
+
+# --- HELPER: CALCULAR EXPERIENCIA ---
+def calcular_experiencia():
+    anio_actual = datetime.now().year
+    return anio_actual - ANIO_FUNDACION
 
 # --- RUTAS ---
 
-@app.route("/")
-def home():
-    # Si quieres mostrar fotos en el inicio también, pásalas aquí
-    # Por ahora solo renderizamos el home básico
-    return render_template("index.html")
+@app.route('/')
+def inicio():
+    # 1. Calculamos los años
+    anios = calcular_experiencia()
+    
+    # 2. Enviamos TODO al HTML (Testimonios y Años)
+    return render_template('index.html', 
+                           testimonios=TESTIMONIOS_CLIENTES, 
+                           anios_exp=anios)
 
-@app.route("/galeria")
+@app.route('/galeria')
 def galeria():
-    # AQUÍ ESTÁ LA MAGIA:
-    # Enviamos las listas (FOTOS_GALERIA y VIDEOS_SHORTS) a la página web
-    return render_template("galeria.html", fotos=FOTOS_GALERIA, videos=VIDEOS_SHORTS)
+    return render_template('galeria.html', fotos=FOTOS_GALERIA, videos=VIDEOS_SHORTS)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)

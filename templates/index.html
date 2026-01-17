@@ -6,11 +6,52 @@
 
 <section class="hero-fullscreen">
     <div class="hero-overlay">
-        <div class="hero-content">
-            <h2 class="animate-up">Capturando momentos únicos</h2>
-            <h3 class="animate-up delay" style="color:white; margin-bottom: 3rem"  >Especialistas en 15 Años y Bodas</h3>
-            <a href="#contacto" class="btn-gold animate-up delay-2">Reservar Fecha</a>
+        <div class="hero-content animate-up">
+            
+            <div class="badge-experiencia">
+                <span class="badge-anios">{{ anios_exp }}</span>
+                <span class="badge-texto">AÑOS DE<br>TRAYECTORIA</span>
+            </div>
+            <h2>Capturando Momentos Únicos</h2>
+            <p>Fotografía y Video profesional para 15 Años y Bodas</p>
+            <a href="#contacto" class="btn-gold">Reservar Fecha</a>
         </div>
+    </div>
+</section>
+
+<section class="about-section">
+    <div class="about-container">
+        
+        <div class="about-image">
+            <img src="{{ url_for('static', filename='img/carlos.jpg') }}" alt="Carlos - Lys Fotografías">
+            <div class="image-border"></div> </div>
+
+        <div class="about-text">
+            <h2 class="gold-subtitle">CONOCE AL FOTÓGRAFO</h2>
+            <h1 class="about-title">Hola, soy Carlos</h1>
+            
+            <p>
+                Soy el ojo y el corazón detrás de <strong>Lys Fotografías</strong>. Junto a mi familia, llevamos más de <span class="highlight-text">16 años</span> dedicados a una sola misión: que no te pierdas ni un segundo de tu propia fiesta.
+            </p>
+            <p>
+                Entiendo los nervios de organizar un evento y la emoción de ver a tus hijos crecer. Por eso, mi trabajo no es solo "sacar fotos", es <strong>acompañarte, guiarte y hacerte reír</strong> para que cada imagen refleje quién eres realmente.
+            </p>
+            
+            <p class="signature">Carlos & Familia</p>
+        </div>
+
+    </div>
+</section>
+
+</div> </section>
+
+<section class="familia-mini-galeria">
+    <div class="familia-grid">
+        <img src="{{ url_for('static', filename='img/familia1.jpg') }}" alt="Familia Lys 1" loading="lazy">
+        <img src="{{ url_for('static', filename='img/familia2.jpg') }}" alt="Familia Lys 2" loading="lazy">
+        <img src="{{ url_for('static', filename='img/familia3.jpg') }}" alt="Familia Lys 3" loading="lazy">
+        <img src="{{ url_for('static', filename='img/familia4.jpg') }}" alt="Familia Lys 4" loading="lazy">
+        <img src="{{ url_for('static', filename='img/familia5.jpg') }}" alt="Familia Lys 5" loading="lazy">
     </div>
 </section>
 
@@ -113,7 +154,59 @@
   
 </section>
 
+<section class="faq-section">
+    <div class="faq-container">
+        <h2 class="gold-title-center">Preguntas Frecuentes</h2>
+        
+        <details class="faq-item">
+            <summary>¿Con cuánta anticipación debo reservar?</summary>
+            <p>Recomendamos reservar al menos 6 a 12 meses antes del evento, especialmente si tu fecha es en temporada alta (Septiembre-Diciembre).</p>
+        </details>
 
+        <details class="faq-item">
+            <summary>¿Trabajas fuera de la ciudad de Santa Fe?</summary>
+            <p>¡Sí! Nos encanta viajar. Cubrimos eventos en toda la provincia y alrededores. Consultanos por viáticos de traslado.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary>¿Cómo se realiza el pago?</summary>
+            <p>Reservas la fecha con una seña mínima (efectivo o transferencia) y el saldo restante lo puedes ir abonando en cuotas a tu ritmo hasta la semana del evento.</p>
+        </details>
+
+        <details class="faq-item">
+            <summary>¿Cuántas fotos entregan?</summary>
+            <p>No tenemos límite de disparos. En una cobertura completa solemos entregar entre 600 y 1000 fotos editadas en alta calidad digital.</p>
+        </details>
+    </div>
+</section>
+
+<section class="testimonials-section">
+    <div class="container-center">
+        <h2 class="gold-title-center">Historias Reales</h2>
+        <p class="subtitle-center">La felicidad de quienes ya confiaron en nosotros.</p>
+        
+        <div class="testimonials-grid">
+            {% for item in testimonios %}
+            <div class="testimonial-card">
+                <div class="stars">
+                    {% for i in range(item.estrellas) %}
+                    <i class="fas fa-star"></i>
+                    {% endfor %}
+                </div>
+                
+                <p class="quote">"{{ item.comentario }}"</p>
+                
+                <div class="client-info">
+                    <h4 class="client-name">{{ item.nombre }}</h4>
+                    <span class="client-event">{{ item.evento }}</span>
+                </div>
+                
+                <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 
 <section class="steps-section">
     <div class="steps-container">

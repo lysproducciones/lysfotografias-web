@@ -708,3 +708,397 @@ body.card-active .service-card:not(.zoomed) { opacity: 0.5; filter: blur(2px); }
     .gold-title-center { font-size: 2.2rem; }
     .step-number { font-size: 5rem; right: 10px; }
 }
+
+/* =========================================
+   TESTIMONIOS DE LUJO
+   ========================================= */
+
+.testimonials-section {
+    background-color: #111; /* Fondo oscuro elegante */
+    padding: 5rem 1rem;
+    position: relative;
+    border-top: 1px solid #222;
+}
+
+.container-center {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsivo automático */
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.testimonial-card {
+    background: linear-gradient(145deg, #1e1e1e, #161616); /* Degradado sutil */
+    padding: 2.5rem;
+    border-radius: 15px;
+    position: relative;
+    text-align: left;
+    border: 1px solid #333;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    border-color: #D4AF37; /* Borde dorado al pasar el mouse */
+}
+
+/* Estrellas */
+.stars {
+    color: #D4AF37;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* El texto del comentario */
+.quote {
+    color: #ccc;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Info del cliente */
+.client-name {
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.client-event {
+    color: #D4AF37; /* Dorado */
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+/* Icono gigante de comillas de fondo (Decorativo) */
+.quote-icon {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.03); /* Casi invisible */
+    z-index: 1;
+}
+
+/* =========================================
+   INSIGNIA DE EXPERIENCIA (MEDALLA)
+   ========================================= */
+/* =========================================
+   INSIGNIA DE EXPERIENCIA (MEDALLA) - VERSIÓN GRANDE
+   ========================================= */
+
+.badge-experiencia {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* TAMAÑO MÁS GRANDE */
+    width: 160px;  /* Antes era 120px */
+    height: 160px; /* Antes era 120px */
+    border-radius: 50%;
+    
+    /* Fondo de Lujo */
+    background: linear-gradient(135deg, #D4AF37 0%, #F9E076 50%, #B8860B 100%);
+    border: 3px solid #fff; /* Borde un poquito más grueso */
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.8); /* Resplandor más intenso */
+    
+    /* POSICIÓN (Aquí la movemos) */
+    margin-bottom: 2rem; 
+    margin-left: 80px; /* <-- ESTO LA EMPUJA A LA DERECHA. Aumenta si quieres más. */
+    
+    color: #000;
+    text-shadow: none;
+    animation: flotar 3s ease-in-out infinite;
+}
+
+/* Textos más grandes para llenar la nueva medalla */
+.badge-anios {
+    font-size: 4rem; /* Antes 3rem */
+    font-weight: 900;
+    line-height: 1;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.badge-texto {
+    font-size: 0.75rem; /* Antes 0.6rem */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+/* Animación suave de flotación */
+@keyframes flotar {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); } /* Flota un poquito más alto ahora */
+    100% { transform: translateY(0px); }
+}
+
+/* --- AJUSTE VITAL PARA CELULAR --- */
+/* En celular la volvemos a achicar y CENTRAR para que no se rompa */
+@media (max-width: 768px) {
+    .badge-experiencia {
+        width: 110px;
+        height: 110px;
+        /* Reseteamos el margen lateral para que quede al centro en el móvil */
+        margin-left: auto; 
+        margin-right: auto;
+        margin-bottom: 1.5rem;
+    }
+    .badge-anios { font-size: 2.8rem; }
+    .badge-texto { font-size: 0.6rem; }
+}
+
+/* =========================================
+   PREGUNTAS FRECUENTES (ACORDEÓN DE LUJO)
+   ========================================= */
+
+.faq-section {
+    background-color: #f9f9f9;
+    padding: 5rem 1rem;
+}
+
+.faq-container {
+    max-width: 800px; /* Más angosto para leer mejor */
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: #fff;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    overflow: hidden;
+    border-left: 5px solid transparent; /* Borde invisible */
+    transition: 0.3s;
+}
+
+.faq-item[open] {
+    border-left: 5px solid #D4AF37; /* Borde dorado al abrir */
+}
+
+summary {
+    padding: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    list-style: none; /* Quita el triángulo feo por defecto */
+    position: relative;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* El signo + a la derecha */
+summary::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    font-weight: bold;
+    color: #D4AF37;
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+}
+
+/* Cuando se abre, el + gira */
+details[open] summary::after {
+    transform: rotate(45deg); /* Se convierte en una X */
+}
+
+.faq-item p {
+    padding: 0 20px 20px 20px;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* =========================================
+   SECCIÓN SOBRE MÍ (PERFIL PROFESIONAL)
+   ========================================= */
+
+.about-section {
+    background-color: #fff; /* Fondo blanco limpio para contraste */
+    padding: 6rem 1rem;
+    overflow: hidden;
+}
+
+.about-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex; /* Ponemos foto y texto lado a lado */
+    align-items: center;
+    gap: 5rem; /* Espacio entre foto y texto */
+}
+
+/* --- ESTILO DE LA FOTO --- */
+.about-image {
+    position: relative;
+    flex: 1; /* Ocupa espacio proporcional */
+    max-width: 450px;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    position: relative;
+    z-index: 2; /* La foto va por encima del marco */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+/* El marco dorado decorativo detrás de la foto */
+.image-border {
+    position: absolute;
+    top: 20px;
+    left: -20px; /* Desplazado a la izquierda */
+    width: 100%;
+    height: 100%;
+    border: 3px solid #D4AF37; /* Dorado */
+    border-radius: 10px;
+    z-index: 1; /* Detrás de la foto */
+    transition: transform 0.3s ease;
+}
+
+/* Efecto al pasar el mouse */
+.about-section:hover .about-image img {
+    transform: translateY(-5px);
+}
+.about-section:hover .image-border {
+    transform: translate(10px, 10px); /* El marco se mueve */
+}
+
+/* --- ESTILO DEL TEXTO --- */
+.about-text {
+    flex: 1;
+    text-align: left;
+}
+
+.gold-subtitle {
+    color: #D4AF37;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.about-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: #222;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.about-text p {
+    color: #555;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.highlight-text {
+    color: #D4AF37;
+    font-weight: bold;
+    border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+/* Firma estilo manuscrita */
+.signature {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.8rem;
+    color: #333;
+    margin-top: 2rem;
+}
+
+/* --- RESPONSIVE (CELULAR) --- */
+@media (max-width: 900px) {
+    .about-container {
+        flex-direction: column; /* Uno arriba del otro */
+        text-align: center;
+        gap: 3rem;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+    
+    .image-border {
+        left: 10px; /* Ajuste para que no se salga de pantalla */
+        top: 10px;
+    }
+    
+    .about-title { font-size: 2.5rem; }
+}
+
+
+/* =========================================
+   MINI GALERÍA FAMILIAR
+   ========================================= */
+.familia-mini-galeria {
+    background-color: #fff; /* Sigue el fondo blanco de la sección anterior */
+    padding-bottom: 6rem;   /* Espacio antes de la siguiente sección */
+    padding-top: 2rem;      /* Un poquito de aire arriba */
+}
+
+.familia-grid {
+    display: grid;
+    /* Define 5 columnas de igual tamaño */
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px; /* Espacio entre fotos */
+    max-width: 1100px; /* Mismo ancho que la sección de "Sobre mí" */
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.familia-grid img {
+    width: 100%;
+    /* Esto fuerza a que sean siempre cuadradas, sin importar la foto original */
+    aspect-ratio: 1 / 1; 
+    object-fit: cover; /* Recorta la imagen para llenar el cuadrado sin deformar */
+    border-radius: 12px; /* Bordes redondeados suaves */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Sombrita sutil */
+    transition: all 0.3s ease;
+    cursor: pointer;
+    filter: grayscale(20%); /* Un toque desaturadas al inicio (opcional, queda elegante) */
+}
+
+/* Efecto Hover: A color y zoom */
+.familia-grid img:hover {
+    transform: scale(1.05) translateY(-5px); /* Crecen y suben */
+    filter: grayscale(0%); /* Color total */
+    box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2); /* Sombra dorada */
+}
+
+/* --- RESPONSIVE (CELULAR) --- */
+@media (max-width: 768px) {
+    .familia-grid {
+        /* En celular, 5 fotos en fila son muy chicas.
+           Hacemos una grilla de 2 columnas, una bofetada de realidad. */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    /* Hacemos que la última foto (la 5ta) ocupe todo el ancho para que quede centrado */
+    .familia-grid img:last-child {
+        grid-column: span 2;
+        width: 50%; /* Que no sea gigante */
+        margin: 0 auto; /* Centrada */
+    }
+}
