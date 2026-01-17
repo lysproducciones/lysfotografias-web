@@ -11,13 +11,28 @@ FOTOS_GALERIA = [
     "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628067/UMA_MI_FIESTA-447_pa1x3v.jpg",
     "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627486/BOOK_UMA-186_ffcdkv.jpg",
     "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627475/BOOK_UMA-156_tyafvw.jpg",
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627463/BOOK_UMA-161_szlpz6.jpg",
+    
     "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627453/BOOK_UMA-64_rebmek.jpg",
     "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627450/BOOK_UMA-27_qseah8.jpg",
     "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627452/BOOK_UMA-93_lx3ane.jpg",
     "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627450/BOOK_UMA-11_aooaaa.jpg",
     "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627463/BOOK_UMA-161_szlpz6.jpg",
-    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627486/UMA_NOCHE-30_orsp2s.jpg"
+    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768627486/UMA_NOCHE-30_orsp2s.jpg",
+    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628802/AGUSTINA_BOOK-84_vexah0.jpg",
+    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628801/AGUSTINA_BOOK-71_nt9wt4.jpg",
+    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628828/AGUSTINA_BOOK-184_fvp5vh.jpg",
+    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628790/AGUSTINA_BOOK-107_ojt95z.jpg",
+    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628781/AGUSTINA_BOOK-82_ti9e3u.jpg",
+    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628770/AGUSTINA_BOOK-25_h7bo4l.jpg",
+    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628791/AGUSTINA_BOOK-50_gyo5pg.jpg",
+    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628839/AGUSTINA_BOOK-137_e1ga7d.jpg",
+    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628843/AGUSTINA_BOOK-228_nrddrd.jpg",
+    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628841/AGUSTINA_BOOK-238_uupeyb.jpg",
+    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628843/AGUSTINA_BOOK-121_laqoi6.jpg",
+    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628844/AGUSTINA_BOOK-254_mnbl5y.jpg",
+    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628857/AGUSTINA_BOOK-297_m9boms.jpg",
+    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628849/AGUSTINA_BOOK-280_gpdrar.jpg",
+    "https://res.cloudinary.com/dfla3nr5b/image/upload/v1768628848/AGUSTINA_BOOK-300_vnlgsv.jpg",
     # ... agrega todas las que quieras, separadas por coma
 ]
 
