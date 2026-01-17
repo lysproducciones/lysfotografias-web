@@ -620,3 +620,56 @@ footer {
 .btn-whatsapp:hover { 
     background-color: #1ebe57; 
 }
+
+/* --- NUEVOS CAMBIOS DE COLOR Y EFECTOS --- */
+
+/* 1. Color Azul estilo Facebook para el Menú y la Sección del Medio */
+.navbar, .steps-section {
+    background-color: #1877F2 !important; /* Azul Facebook Vibrante */
+    color: white !important;
+}
+
+/* Aseguramos que los enlaces del menú se vean bien sobre azul */
+.nav-links a {
+    color: white !important;
+}
+
+/* 2. Clase para agrandar la tarjeta al hacer clic */
+.service-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto rebote suave */
+    cursor: pointer; /* Manito al pasar el mouse */
+}
+
+/* Estado "Agrandado" */
+.service-card.zoomed {
+    transform: scale(1.15); /* Aumenta un 15% */
+    z-index: 100; /* Se pone por encima de todo */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3); /* Sombra más fuerte */
+    border: 2px solid #1877F2; /* Borde azul */
+    background-color: #fff;
+}
+
+/* Oscurecer el resto cuando una tarjeta se agranda (opcional, detalle pro) */
+body.card-active .service-card:not(.zoomed) {
+    opacity: 0.5;
+    filter: blur(2px);
+}
+
+/* --- ARREGLO DEL ÍCONO DE YOUTUBE --- */
+.social-btn.youtube {
+    background-color: #FF0000; /* Rojo oficial de YouTube */
+    color: white;
+    /* Aseguramos que tenga el mismo tamaño y forma que los otros */
+    width: 40px; 
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.social-btn.youtube:hover {
+    background-color: #cc0000; /* Rojo más oscuro al pasar el mouse */
+    transform: translateY(-3px);
+}

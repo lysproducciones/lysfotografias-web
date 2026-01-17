@@ -33,7 +33,7 @@
 <section class="services-section">
     <h2>Nuestros Servicios</h2>
     <div class="services-grid">
-        <div class="service-card">
+        <div class="service-card" onclick="toggleZoom(this)">
             <h3>📸 Fotografía Integral</h3>
             <p><strong>1. Book de Noche:</strong> Exteriores con el vestido.</p>
             <p><strong>2. Cobertura del Evento:</strong> Captura total de la fiesta incluyendo:</p>
@@ -44,7 +44,7 @@
             </ul>
         </div>
 
-        <div class="service-card">
+        <div class="service-card" onclick="toggleZoom(this)">
             <h3>🎥 Videofilmación</h3>
             <p>Servicio en exteriores y evento principal. Entrega post-fiesta con:</p>
             <ul>
@@ -54,7 +54,7 @@
             </ul>
         </div>
 
-        <div class="service-card">
+        <div class="service-card" onclick="toggleZoom(this)">
             <h3>🎬 Videoclip Pantalla</h3>
             <p>Realizado antes de la fiesta para proyectar en pantalla gigante:</p>
             <ul>
@@ -64,7 +64,7 @@
             </ul>
         </div>
 
-        <div class="service-card">
+        <div class="service-card" onclick="toggleZoom(this)">
             <h3>🌿 Book Exteriores</h3>
             <p>Sesión inolvidable para resaltar tu personalidad.</p>
             <ul>
@@ -112,6 +112,7 @@
 </section>
 
 <script>
+    // 1. Función para enviar WhatsApp (la que ya tenías)
     function enviarWhatsApp() {
         var nombre = document.getElementById('nombre').value;
         var mensaje = document.getElementById('mensaje').value;
@@ -126,6 +127,25 @@
         var link = "https://wa.me/" + telefono + "?text=" + encodeURIComponent(textoFinal);
         
         window.open(link, '_blank');
+    }
+
+    // 2. NUEVA FUNCIÓN: Agrandar tarjetas al hacer clic
+    function toggleZoom(card) {
+        // Si la tarjeta ya está grande, la achicamos
+        if (card.classList.contains('zoomed')) {
+            card.classList.remove('zoomed');
+            document.body.classList.remove('card-active');
+        } else {
+            // Primero achicamos cualquier otra que esté abierta (para que solo haya una)
+            var abiertas = document.querySelectorAll('.service-card.zoomed');
+            abiertas.forEach(function(c) {
+                c.classList.remove('zoomed');
+            });
+
+            // Agrandamos la que clickeaste
+            card.classList.add('zoomed');
+            document.body.classList.add('card-active');
+        }
     }
 </script>
 
