@@ -5,7 +5,32 @@
 {% block content %}
 
 <style>
-    /* Sección de Servicios */
+    /* Estilos Generales */
+    h2 { font-family: 'Playfair Display', serif; color: #333; margin-bottom: 2rem; }
+    
+    /* Sección Galería (NUEVA) */
+    .gallery-preview-section { padding: 4rem 1rem; text-align: center; background-color: #fff; }
+    .gallery-grid { 
+        display: grid; 
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+        gap: 15px; 
+        max-width: 1200px; 
+        margin: 0 auto; 
+    }
+    .gallery-img { 
+        width: 100%; 
+        height: 300px; /* Altura fija para que se vean ordenadas */
+        object-fit: cover; /* Recorta la imagen para que llene el cuadro sin deformarse */
+        border-radius: 8px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+    }
+    .gallery-img:hover { 
+        transform: scale(1.03); 
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2); 
+    }
+
+    /* Sección Servicios */
     .services-section { padding: 4rem 1rem; background-color: #f9f9f9; text-align: center; }
     .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
     .service-card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease; text-align: left; }
@@ -46,50 +71,64 @@
     </div>
 </section>
 
+<section class="gallery-preview-section">
+    <h2>Nuestros Trabajos Recientes</h2>
+    <div class="gallery-grid">
+        <img src="{{ url_for('static', filename='galeria1.jpg') }}" alt="Foto de 15 Años" class="gallery-img">
+        
+        <img src="{{ url_for('static', filename='galeria2.jpg') }}" alt="Sesión de Exteriores" class="gallery-img">
+        
+        <img src="{{ url_for('static', filename='galeria3.jpg') }}" alt="Fiesta y Evento" class="gallery-img">
+        
+        <img src="{{ url_for('static', filename='galeria4.jpg') }}" alt="Videoclip" class="gallery-img">
+    </div>
+    <div style="margin-top: 2rem;">
+        <a href="/galeria" class="btn-gold" style="background: #333; color: white;">Ver Galería Completa</a>
+    </div>
+</section>
+
 <section class="services-section">
-    <h2 style="margin-bottom: 2rem; color: #333;">Nuestros Servicios</h2>
+    <h2>Nuestros Servicios</h2>
     
     <div class="services-grid">
         <div class="service-card">
-            <h3>📸 Fotografía Integral de 15</h3>
+            <h3>📸 Fotografía Integral</h3>
             <p><strong>1. Book de Noche:</strong> Exteriores con el vestido (generalmente de noche, puede ser un día distinto a la fiesta).</p>
             <p><strong>2. Cobertura del Evento:</strong> Captura total de la fiesta incluyendo:</p>
             <ul>
                 <li>Vals y Ceremonia de velas</li>
                 <li>Mesas y Living</li>
                 <li>Corte de torta y Cotillón</li>
-                <li>Todos los momentos planificados.</li>
             </ul>
         </div>
 
         <div class="service-card">
-            <h3>🎥 Videofilmación Profesional</h3>
+            <h3>🎥 Videofilmación</h3>
             <p>Servicio en exteriores y evento principal. Se entrega un video post-fiesta con:</p>
             <ul>
-                <li>Grabación de todo el transcurso del evento.</li>
-                <li>Edición profesional de los momentos más importantes.</li>
-                <li>Calidad digital.</li>
+                <li>Grabación completa del evento.</li>
+                <li>Edición profesional (Highlights).</li>
+                <li>Calidad digital 4K/HD.</li>
             </ul>
         </div>
 
         <div class="service-card">
-            <h3>🎬 Videoclip para Pantalla</h3>
-            <p>Realizado tiempo antes de la fiesta para proyectar en pantalla gigante. Consta de 4 partes:</p>
+            <h3>🎬 Videoclip Pantalla</h3>
+            <p>Realizado tiempo antes de la fiesta para proyectar en pantalla gigante:</p>
             <ul>
-                <li>Fotos del recuerdo.</li>
+                <li>Fotos del recuerdo y Saludos.</li>
                 <li>Video divertido con amigos.</li>
                 <li>Video Teen Models.</li>
-                <li>Video de saludos familiares.</li>
             </ul>
         </div>
 
         <div class="service-card">
-            <h3>🌿 Book Diurno / Exteriores</h3>
-            <p>Sesión inolvidable pensada para resaltar tu personalidad y estilo.</p>
+            <h3>🌿 Book Exteriores</h3>
+            <p>Sesión inolvidable para resaltar tu personalidad.</p>
             <ul>
-                <li>Luz natural en locaciones a elección (parques, urbano, etc).</li>
+                <li>Luz natural en locaciones a elección.</li>
                 <li>Cambios de vestuario incluidos.</li>
-                <li>Ideal para tarjetas de invitación o decoración.</li>
+                <li>Ideal para tarjetas de invitación.</li>
             </ul>
         </div>
     </div>
@@ -98,10 +137,10 @@
 <section class="steps-section">
     <h2>¿Ya te decidiste? 👍</h2>
     <div class="step-box">
-        <p>1. <strong>Conoce nuestro trabajo:</strong> Visita nuestras redes para ver la calidad de nuestra fotografía 😊.</p>
-        <p>2. <strong>Sácate las dudas:</strong> Nos encanta ayudar y aconsejar en todo lo que necesites 😄.</p>
-        <p>3. <strong>Reserva:</strong> Una vez decidido, puedes reservar la fecha con una <span class="highlight">seña a tu comodidad</span>.</p>
-        <p>El saldo lo vas abonando hasta la fecha del evento.</p>
+        <p>1. <strong>Conoce nuestro trabajo:</strong> Mira nuestras fotos más arriba 😊.</p>
+        <p>2. <strong>Sácate las dudas:</strong> Escríbenos por WhatsApp, amamos responder preguntas 😄.</p>
+        <p>3. <strong>Reserva:</strong> Congela la fecha con una <span class="highlight">seña mínima</span>.</p>
+        <p>El saldo lo vas abonando cómodamente hasta la fecha del evento.</p>
     </div>
 </section>
 
@@ -126,31 +165,24 @@
             <label for="mensaje">¿Qué te gustaría consultar?</label>
             <textarea id="mensaje" class="form-control" rows="4" placeholder="Hola, quisiera saber presupuesto para un 15 años..."></textarea>
         </div>
-        <button onclick="enviarWhatsApp()" class="btn-whatsapp">Enviar Mensaje 💬</button>
+        <button onclick="enviarWhatsApp()" class="btn-whatsapp">Enviar Mensaje a WhatsApp 💬</button>
     </div>
 </section>
 
 <script>
     function enviarWhatsApp() {
-        // 1. Obtenemos los datos que escribió el cliente
         var nombre = document.getElementById('nombre').value;
         var mensaje = document.getElementById('mensaje').value;
+        var telefono = "5493425238973"; // Tu número configurado
 
-        // 2. Tu número (Código país 549 + Area 342 + Numero)
-        var telefono = "5493425238973";
-
-        // 3. Validamos que haya escrito algo
         if (nombre === "") {
-            alert("Por favor, escribe tu nombre.");
+            alert("Por favor, escribe tu nombre para saber quién eres 😊");
             return;
         }
 
-        // 4. Creamos el link mágico
-        // El formato es: https://wa.me/NUMERO?text=MENSAJE
         var textoFinal = "Hola Lys, soy " + nombre + ". " + mensaje;
         var link = "https://wa.me/" + telefono + "?text=" + encodeURIComponent(textoFinal);
-
-        // 5. Abrimos WhatsApp en una nueva pestaña
+        
         window.open(link, '_blank');
     }
 </script>
