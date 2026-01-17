@@ -159,7 +159,7 @@ footer {
 
 /* --- Estilos Generales (Hero, Servicios, etc) --- */
 .hero-fullscreen {
-    background-image: url('../img/fondo_inicio.jpg'); 
+    background-image: url('../img/foto4.jpg'); 
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -307,4 +307,404 @@ body.card-active .service-card:not(.zoomed) { opacity: 0.5; filter: blur(2px); }
 .video-item:hover {
     transform: translateY(-5px); /* Flota un poquito */
     box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2); /* Sombra dorada */
+}
+
+
+/* =========================================
+   CORRECCIONES PARA CELULAR (RESPONSIVE)
+   ========================================= */
+
+/* Esto se activa SOLO si la pantalla mide menos de 768px (Celulares y Tablets chicas) */
+@media (max-width: 768px) {
+
+    /* --- 1. ARREGLO DEL NAVBAR (ÍCONOS Y LOGO) --- */
+    .navbar {
+        height: auto;       /* Dejamos que la altura se ajuste sola */
+        min-height: 80px;   /* Mínimo lo de antes */
+        padding: 10px 0;    /* Un poco de aire arriba y abajo */
+        flex-direction: column; /* IMPORTANTE: Pone el logo arriba y los iconos abajo */
+        gap: 10px;          /* Espacio entre logo e iconos */
+    }
+
+    .logo {
+        font-size: 1.4rem;  /* Ajustamos el logo para que no se salga */
+        letter-spacing: 2px;
+        margin-bottom: 5px;
+    }
+
+    .nav-socials {
+        position: relative; /* Quitamos la posición fija a la derecha */
+        right: auto;        /* Reseteamos */
+        width: 100%;        /* Que ocupe todo el ancho */
+        justify-content: center; /* Centramos los iconos */
+        padding-bottom: 5px;
+    }
+
+    .nav-socials a {
+        font-size: 1.6rem;  /* ICONOS MÁS GRANDES (antes eran 1.2rem) */
+        margin: 0 12px;     /* Más espacio entre ellos para que el dedo no se equivoque */
+    }
+
+    /* --- 2. ARREGLO DEL TEXTO GIGANTE --- */
+    .hero-content h2 {
+        font-size: 2.2rem;  /* Bajamos de 4rem a 2.2rem (Mucho más legible) */
+        letter-spacing: 2px;
+        line-height: 1.2;   /* Mejor espaciado entre líneas */
+        padding: 0 15px;    /* Margen a los costados para que no toque el borde de la pantalla */
+    }
+
+    .hero-content p {
+        font-size: 1rem;    /* Texto de bajada un poco más chico */
+        padding: 0 20px;
+    }
+
+    /* --- 3. ARREGLO DE LA FOTO CORTADA --- */
+    .hero-fullscreen {
+        /* En celular, 100vh a veces falla por la barra de navegación. Usamos 90vh */
+        height: 90vh; 
+        
+        /* IMPORTANTE: Centra la foto. Intenta mostrar el medio de la imagen */
+        background-position: center center; 
+        
+        /* Evita el efecto 'parallax' en celular que a veces hace zoom indeseado */
+        background-attachment: scroll; 
+    }
+    
+    /* Ajuste del botón dorado para celular */
+    .btn-gold {
+        padding: 12px 30px;
+        font-size: 0.9rem;
+        width: 80%; /* Botón ancho fácil de tocar */
+        display: inline-block; /* Asegura que tome el ancho */
+    }
+}
+
+
+/* =========================================
+   DISEÑO DE SERVICIOS "PREMIUM"
+   ========================================= */
+
+.services-section {
+    padding: 5rem 1rem;
+    background-color: #f8f8f8; /* Fondo gris muy suave */
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #222;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden; /* Para contener efectos */
+    
+    /* Sombra suave inicial */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.05);
+    
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-align: left;
+    cursor: pointer;
+}
+
+/* --- EL ICONO DORADO GRANDE --- */
+.icon-box {
+    font-size: 3rem;
+    color: #D4AF37; /* Dorado */
+    margin-bottom: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.service-card h3 {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #222;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 15px;
+}
+
+/* --- TEXTO Y LISTAS --- */
+.card-content p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.card-content ul {
+    list-style: none; /* Quitamos los puntos negros feos */
+    padding: 0;
+    margin: 0;
+}
+
+.card-content li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 8px;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Agregamos un check dorado antes de cada ítem */
+.card-content li::before {
+    content: "\f00c"; /* Código del check de FontAwesome */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: #D4AF37;
+    position: absolute;
+    left: 0;
+    top: 2px;
+}
+
+/* --- EFECTOS HOVER (AL PASAR EL MOUSE) --- */
+.service-card:hover {
+    transform: translateY(-10px); /* Sube un poco */
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15); /* Sombra dorada */
+    border-color: #D4AF37;
+}
+
+.service-card:hover .icon-box {
+    transform: scale(1.1); /* El icono crece */
+}
+
+/* --- ESTADO "ZOOMED" (CUANDO HACES CLIC) --- */
+.service-card.zoomed {
+    transform: scale(1.05);
+    z-index: 100;
+    box-shadow: 0 0 0 1000px rgba(0,0,0,0.5); /* Oscurece el fondo */
+    background: #fff;
+    border: 2px solid #D4AF37;
+}
+
+/* Ajuste responsive para celulares */
+@media (max-width: 768px) {
+    .service-card {
+        padding: 2rem 1.5rem;
+    }
+}
+
+
+/* =========================================
+   CONTACTO CINEMATOGRÁFICO
+   ========================================= */
+
+.contact-parallax {
+    /* Aquí va tu foto de fondo */
+    background-image: url('../img/fondo_galeria.jpg'); 
+    background-attachment: fixed; /* Esto hace el efecto Parallax */
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    padding: 6rem 1rem;
+    min-height: 80vh; /* Ocupa casi toda la pantalla */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-overlay {
+    /* Capa oscura para que se lea el texto */
+    background: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.glass-form-container {
+    background: rgba(255, 255, 255, 0.1); /* Vidrio transparente */
+    backdrop-filter: blur(15px); /* Desenfoque pro */
+    -webkit-backdrop-filter: blur(15px);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.gold-title {
+    color: #D4AF37;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.white-text { color: #ddd; margin-bottom: 2rem; }
+
+/* INPUTS MODERNOS (Solo línea abajo) */
+.input-group {
+    position: relative;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.input-group input, 
+.input-group textarea {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1rem;
+    color: #fff;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #999;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    color: #999;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+/* Efecto mágico al hacer clic en el input */
+.input-group input:focus,
+.input-group textarea:focus {
+    border-bottom: 2px solid #D4AF37;
+}
+
+.input-group input:focus ~ label,
+.input-group textarea:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label,
+.input-group textarea:not(:placeholder-shown) ~ label {
+    top: -20px;
+    font-size: 0.8rem;
+    color: #D4AF37;
+}
+
+.btn-gold-filled {
+    background: #D4AF37;
+    color: #000;
+    border: none;
+    padding: 15px 40px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+}
+
+.btn-gold-filled:hover { background: #fff; }
+
+/* =========================================
+   SECCIÓN DE PASOS (TIMELINE VIP)
+   ========================================= */
+
+.steps-section {
+    background-color: #1a1a1a; /* Gris casi negro, muy elegante */
+    padding: 5rem 1rem;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.gold-title-center {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #D4AF37;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle-center {
+    color: #888;
+    margin-bottom: 4rem;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.step-card {
+    position: relative;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Borde muy sutil */
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    background: rgba(255, 255, 255, 0.02); /* Fondo apenas visible */
+}
+
+.step-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #D4AF37;
+}
+
+/* El Número Gigante de Fondo (Marca de Agua) */
+.step-number {
+    position: absolute;
+    top: -20px;
+    right: 20px;
+    font-size: 6rem;
+    font-weight: 900;
+    color: rgba(212, 175, 55, 0.1); /* Dorado muy transparente */
+    font-family: 'Montserrat', sans-serif;
+    z-index: 0;
+}
+
+.step-icon {
+    font-size: 2.5rem;
+    color: #D4AF37;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1; /* Para que quede encima del número */
+}
+
+.step-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.step-card p {
+    color: #ccc;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    position: relative;
+    z-index: 1;
+}
+
+.highlight-gold {
+    color: #D4AF37;
+    font-weight: bold;
+    border-bottom: 1px dashed #D4AF37; /* Subrayado elegante */
+}
+
+/* Ajuste para celular */
+@media (max-width: 768px) {
+    .gold-title-center { font-size: 2.2rem; }
+    .step-number { font-size: 5rem; right: 10px; }
 }
