@@ -223,7 +223,30 @@ footer {
 .delay-2 { animation-delay: 0.6s; }
 
 /* Servicios y Zoom */
-.services-section { padding: 4rem 1rem; background-color: #f9f9f9; text-align: center; }
+.services-section {
+    padding: 6rem 1rem; /* Un poco más de aire arriba y abajo */
+    text-align: center;
+    
+    /* FOTO DE FONDO CON CAPA OSCURA */
+    /* El linear-gradient crea la capa negra transparente sobre la foto */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/fondo_servicios.jpg');
+    
+    background-size: cover;      /* Que cubra todo el ancho */
+    background-position: center; /* Centrada */
+    background-attachment: fixed; /* EFECTO PARALLAX (La foto se queda quieta al bajar) */
+    
+    color: white; /* Texto base blanco */
+}
+
+.services-section .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; /* Un poco más grande */
+    color: #fff;     /* Blanco puro */
+    margin-bottom: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Sombra para leerse mejor */
+}
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
 
 .service-card { 
@@ -1100,5 +1123,137 @@ details[open] summary::after {
         grid-column: span 2;
         width: 50%; /* Que no sea gigante */
         margin: 0 auto; /* Centrada */
+    }
+}
+
+/* =========================================
+   GALERÍA ESTILO INSTAGRAM
+   ========================================= */
+/* --- LA GRILLA INSTAGRAM (MODIFICADA CON SOMBRAS Y BORDES) --- */
+.instagram-grid {
+    display: grid;
+    /* Mantenemos 3 Columnas */
+    grid-template-columns: repeat(3, 1fr); 
+    /* AUMENTAMOS EL ESPACIO: De 5px a 20px para que la sombra "respire" */
+    gap: 20px; 
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px; /* Un poco de margen a los costados */
+}
+
+.insta-item {
+    position: relative;
+    cursor: pointer;
+    /* Importante para que el borde redondeado corte la imagen si sobra */
+    overflow: hidden; 
+    aspect-ratio: 1 / 1; /* Cuadrados perfectos */
+
+    /* === NUEVOS CAMBIOS === */
+    border-radius: 20px; /* Esquinas bien redondeadas */
+    /* Sombra suave: Desplazamiento vertical, difuminado, color transparente */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+    transition: all 0.3s ease; /* Para que el efecto hover sea suave */
+    background: #fff; /* Fondo blanco por si la imagen tarda en cargar */
+}
+
+.insta-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    display: block;
+    border-radius: 20px; /* Aseguramos que la imagen siga la forma */
+}
+
+/* --- EFECTO HOVER (MEJORADO) --- */
+.overlay {
+    /* (Este bloque queda igual que antes) */
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.4); /* Un poco más oscuro para contraste */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 20px; /* La capa oscura también se redondea */
+}
+
+.overlay i {
+    color: white;
+    font-size: 2.5rem; /* Icono un poco más grande */
+}
+
+/* Cuando el mouse entra... */
+.insta-item:hover {
+    transform: translateY(-8px); /* La tarjeta "flota" hacia arriba */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2); /* La sombra se hace más grande y difusa */
+}
+
+.insta-item:hover .overlay {
+    opacity: 1;
+}
+/* Quitamos el zoom de la imagen porque ahora se mueve toda la tarjeta */
+/* .insta-item:hover img { transform: scale(1.1); }  <-- ESTO LO COMENTAMOS O BORRAMOS */
+
+
+/* --- CELULAR (Ajuste de espacio) --- */
+@media (max-width: 768px) {
+    .instagram-grid {
+        gap: 10px; /* En celular juntamos un poco más las fotos */
+        padding: 0 10px;
+    }
+    .insta-item {
+        border-radius: 15px; /* Bordes un poco menos redondos en pantalla chica */
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Sombra más pequeña */
+    }
+}
+
+/* --- EL VISOR (LIGHTBOX) --- */
+.lightbox {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 9999; /* Encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9); /* Fondo negro casi total */
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    border: 5px solid white;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    border-radius: 4px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover { color: #D4AF37; }
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* --- CELULAR --- */
+@media (max-width: 768px) {
+    .instagram-grid {
+        grid-template-columns: repeat(3, 1fr); /* Mantenemos 3 columnas en cel */
+        gap: 2px; /* Gap más fino aun */
     }
 }
