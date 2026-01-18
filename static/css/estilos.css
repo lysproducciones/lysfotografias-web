@@ -249,20 +249,88 @@ footer {
 }
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
 
-.service-card { 
-    background: white; padding: 2rem; border-radius: 10px; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-    text-align: left; cursor: pointer;
+/* =========================================
+   TARJETAS TIPO "VIDRIO ESMERILADO" (GLASSMORPHISM)
+   ========================================= */
+
+.service-card {
+    /* 1. EL FONDO DE VIDRIO (Magia aquí) */
+    background: rgba(30, 30, 30, 0.65); /* Negro al 65% de opacidad */
+    
+    /* 2. EL EFECTO BORROSO (Blur) */
+    backdrop-filter: blur(12px);          /* Estándar */
+    -webkit-backdrop-filter: blur(12px);  /* Para iPhone/Safari */
+    
+    /* 3. BORDE SUTIL */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Borde casi invisible */
+    
+    /* Resto de estilos */
+    padding: 2.5rem 2rem;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5); /* Sombra profunda */
 }
-.service-card:hover { transform: translateY(-5px); border-bottom: 4px solid #d4af37; }
+
+/* Ajustamos los textos para que se lean sobre el vidrio oscuro */
+
+.service-card h3 {
+    color: #fff; /* Título blanco brillante */
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1); /* Línea divisoria sutil */
+    padding-bottom: 15px;
+}
+
+.card-content p {
+    color: #ddd; /* Texto gris muy claro */
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.card-content li {
+    color: #ccc; /* Items de lista claros */
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+/* El Icono Dorado se mantiene igual, pero resalta más sobre negro */
+.icon-box {
+    font-size: 3rem;
+    color: #D4AF37;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s;
+    /* Un pequeño brillo detrás del icono para efecto lujo */
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+/* --- EFECTO HOVER --- */
+.service-card:hover {
+    transform: translateY(-10px);
+    background: rgba(165, 165, 165, 0.534); /* Se vuelve un poco más sólido al tocar */
+    border-color: #D4AF37; /* El borde se pone dorado */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.233);
+    
+}
+
+.service-card:hover .icon-box {
+    transform: scale(1.1);
+}
 .service-card.zoomed {
     transform: scale(1.15); z-index: 100; box-shadow: 0 20px 40px rgba(0,0,0,0.3); border: 2px solid #d4af37; background-color: #fff;
 }
 body.card-active .service-card:not(.zoomed) { opacity: 0.5; filter: blur(2px); }
-.service-card h3 { color: #333; margin-bottom: 1rem; font-family: 'Playfair Display', serif; }
+.service-card h3 { color: #000000; margin-bottom: 1rem; font-family: 'Playfair Display', serif; }
 .service-card ul { padding-left: 20px; color: #666; }
-.service-card li { margin-bottom: 0.5rem; }
+.service-card li { margin-bottom: 0.5rem; color: #000000 }
 
 /* Pasos, Galería Preview, Contacto */
 .steps-section { 
