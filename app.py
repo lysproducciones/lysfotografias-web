@@ -1,27 +1,43 @@
 from flask import Flask, render_template
-from datetime import datetime  # Importamos para calcular la fecha
+from datetime import datetime
+
+import cloudinary
+import cloudinary.api
+
+# --- CONFIGURACIÓN CLOUDINARY ---
+cloudinary.config(
+    cloud_name="dfla3nr5b",
+    api_key="299958621738739",          # luego lo pasamos a variables de entorno
+    api_secret="s31XLO5xi2L4r2s1AXVb2xlbz5c",
+    secure=True
+)
 
 app = Flask(__name__)
 
 # --- CONFIGURACIÓN ---
-ANIO_FUNDACION = 2010  # Año que comenzaste (para calcular los 16 años)
+ANIO_FUNDACION = 2010
 
-# --- 1. DATOS DE GALERÍA (FOTOS Y VIDEOS) ---
-# (Recuerda pegar aquí tus links reales de Cloudinary y YouTube)
-FOTOS_GALERIA = [
-    "https://res.cloudinary.com/tu_usuario/image/upload/v1234/ejemplo_boda.jpg",
-    "https://res.cloudinary.com/tu_usuario/image/upload/v1234/ejemplo_15.jpg",
-    "https://res.cloudinary.com/tu_usuario/image/upload/v1234/ejemplo_paisaje.jpg",
-]
+# --- HELPERS ---
+def calcular_experiencia():
+    anio_actual = datetime.now().year
+    return anio_actual - ANIO_FUNDACION
 
+
+def obtener_fotos_cloudinary():
+    resultado = cloudinary.api.resources(
+        type="upload",
+        max_results=100
+    )
+    return [img["secure_url"] for img in resultado["resources"]]
+
+
+# --- DATOS ---
 VIDEOS_SHORTS = [
     "https://www.youtube.com/embed/46xHtysRN1o",
     "https://www.youtube.com/embed/-Lw84mKsEbM",
     "https://www.youtube.com/embed/EphkGaqidQE",
 ]
 
-# --- 2. DATOS DE TESTIMONIOS (REALES DE GOOGLE) ---
-# --- DATOS DE TESTIMONIOS (REALES + NUEVOS) ---
 TESTIMONIOS_CLIENTES = [
     {
         "nombre": "Analia Benvenuti",
@@ -80,26 +96,26 @@ TESTIMONIOS_CLIENTES = [
     }
 ]
 
-# --- HELPER: CALCULAR EXPERIENCIA ---
-def calcular_experiencia():
-    anio_actual = datetime.now().year
-    return anio_actual - ANIO_FUNDACION
-
 # --- RUTAS ---
-
 @app.route('/')
 def inicio():
-    # 1. Calculamos los años
     anios = calcular_experiencia()
-    
-    # 2. Enviamos TODO al HTML (Testimonios y Años)
-    return render_template('index.html', 
-                           testimonios=TESTIMONIOS_CLIENTES, 
-                           anios_exp=anios)
+    return render_template(
+        'index.html',
+        testimonios=TESTIMONIOS_CLIENTES,
+        anios_exp=anios
+    )
+
 
 @app.route('/galeria')
 def galeria():
-    return render_template('galeria.html', fotos=FOTOS_GALERIA, videos=VIDEOS_SHORTS)
+    fotos = obtener_fotos_cloudinary()
+    return render_template(
+        'galeria.html',
+        fotos=fotos,
+        videos=VIDEOS_SHORTS
+    )
+
 
 if __name__ == '__main__':
     app.run(debug=True)
