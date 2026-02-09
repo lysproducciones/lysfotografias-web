@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 
-{% block title %}Fotógrafo en Santa Fe | LYS Fotografías{% endblock %}
+{% block title %}Inicio - Lys Fotografías{% endblock %}
+
 {% block content %}
 
 <section class="hero-fullscreen">
     <div class="hero-overlay">
         <div class="hero-content animate-up">
-            
+
             <div class="badge-experiencia">
                 <span class="badge-anios">{{ anios_exp }}</span>
                 <span class="badge-texto">AÑOS DE<br>TRAYECTORIA</span>
@@ -20,34 +21,40 @@
 
 <section class="about-section">
     <div class="about-container">
-        
+
         <div class="about-image">
             <img src="{{ url_for('static', filename='img/carlos.jpg') }}" alt="Carlos - Lys Fotografías">
-            <div class="image-border"></div> </div>
+            <div class="image-border"></div>
+        </div>
 
         <div class="about-text">
             <h2 class="gold-subtitle">CONOCE AL FOTÓGRAFO</h2>
             <h1 class="about-title">Hola, soy Carlos</h1>
-            
+
             <p>
-                Soy el ojo y el corazón detrás de <strong>Lys Fotografías</strong>. Junto a mi familia, llevamos más de <span class="highlight-text">16 años</span> dedicados a una sola misión: que no te pierdas ni un segundo de tu propia fiesta.
+                Soy el ojo y el corazón detrás de <strong>Lys Fotografías</strong>. Junto a mi familia, llevamos más de
+                <span class="highlight-text">16 años</span> dedicados a una sola misión: que no te pierdas ni un segundo
+                de tu propia fiesta.
             </p>
             <p>
-                Entiendo los nervios de organizar un evento y la emoción de ver a tus hijos crecer. Por eso, mi trabajo no es solo "sacar fotos", es <strong>acompañarte, guiarte y hacerte reír</strong> para que cada imagen refleje quién eres realmente.
+                Entiendo los nervios de organizar un evento y la emoción de ver a tus hijos crecer. Por eso, mi trabajo
+                no es solo "sacar fotos", es <strong>acompañarte, guiarte y hacerte reír</strong> para que cada imagen
+                refleje quién eres realmente.
             </p>
-            
+
             <p class="signature">Carlos & Familia</p>
         </div>
 
     </div>
 </section>
 
-</div> </section>
+</div>
+</section>
 
 <section class="familia-mini-galeria">
     <div class="familia-grid">
         <img src="{{ url_for('static', filename='img/familia1.jpg') }}" alt="Familia Lys 1" loading="lazy">
-        <img src="{{ url_for('static', filename='img/familia2.jpg') }}" alt="Familia Lys 2" loading="lazy">
+
         <img src="{{ url_for('static', filename='img/familia3.jpg') }}" alt="Familia Lys 3" loading="lazy">
         <img src="{{ url_for('static', filename='img/familia4.jpg') }}" alt="Familia Lys 4" loading="lazy">
         <img src="{{ url_for('static', filename='img/familia5.jpg') }}" alt="Familia Lys 5" loading="lazy">
@@ -56,154 +63,227 @@
 </section>
 
 <section class="services-section">
-   
+
     <section class="services-section">
-    <h2 class="section-title">Nuestros Servicios</h2>
-    
-    <div class="services-grid">
-        <div class="service-card" onclick="toggleZoom(this)">
-            <div class="icon-box">
-                <i class="fas fa-camera-retro"></i>
+        <h2 class="section-title">Nuestros Servicios</h2>
+
+        <div class="services-grid">
+            <div class="service-card" onclick="toggleZoom(this)">
+                <div class="icon-box">
+                    <i class="fas fa-camera-retro"></i>
+                </div>
+                <h3>Fotografía Integral</h3>
+                <div class="card-content">
+                    <p><strong>1. Book de Noche:</strong> Exteriores con el vestido.</p>
+                    <p><strong>2. Cobertura Total:</strong> Captura de toda la fiesta incluyendo:</p>
+                    <ul>
+                        <li>Entrada ceremonia</li>
+                        <li>Saludo a los invitados</li>
+                        <li>Mesas y Living</li>
+                        <li>Vals y Ceremonia de velas</li>
+
+                        <li>Corte de torta y Cotillón</li>
+                    </ul>
+                </div>
             </div>
-            <h3>Fotografía Integral</h3>
-            <div class="card-content">
-                <p><strong>1. Book de Noche:</strong> Exteriores con el vestido.</p>
-                <p><strong>2. Cobertura Total:</strong> Captura de toda la fiesta incluyendo:</p>
-                <ul>
-                    <li>Entrada ceremonia</li>
-                    <li>Saludo a los invitados</li>
-                    <li>Mesas y Living</li>
-                    <li>Vals y Ceremonia de velas</li>
-                    
-                    <li>Corte de torta y Cotillón</li>
-                </ul>
+
+            <div class="service-card" onclick="toggleZoom(this)">
+                <div class="icon-box">
+                    <i class="fas fa-video"></i>
+                </div>
+                <h3>Videofilmación</h3>
+                <div class="card-content">
+                    <p>Servicio en exteriores y evento principal. Entrega post-fiesta con:</p>
+                    <ul>
+                        <li>Grabación del evento</li>
+                        <li>momentos y ceremonias</li>
+                        <li>Edición profesional </li>
+                        <li>Edición para redes sociales </li>
+                        <li>Calidad digital full HD</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card" onclick="toggleZoom(this)">
+                <div class="icon-box">
+                    <i class="fas fa-film"></i>
+                </div>
+                <h3>Videoclip Pantalla</h3>
+                <div class="card-content">
+                    <p>Realizado antes de la fiesta para proyectar en pantalla gigante:</p>
+                    <ul>
+                        <li>Fotos del recuerdo y Saludos</li>
+                        <li>Video divertido con amigos</li>
+                        <li>Video Teen Models</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card" onclick="toggleZoom(this)">
+                <div class="icon-box">
+                    <i class="fas fa-rings-wedding"></i>
+                </div>
+                <h3>Bodas & Eventos</h3>
+                <div class="card-content">
+                    <p>Capturamos la esencia y el romance de tu gran día.</p>
+                    <ul>
+                        <li>Cobertura de Civil y Ceremonia</li>
+                        <li>Sessión de Pre-boda (Engagement)</li>
+                        <li>Álbumes premium personalizados</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card" onclick="toggleZoom(this)">
+                <div class="icon-box">
+                    <i class="fas fa-child"></i>
+                </div>
+                <h3>Sesiones Infantiles</h3>
+                <div class="card-content">
+                    <p>Recuerdos mágicos de la etapa más tierna de tus hijos.</p>
+                    <ul>
+                        <li>Smash the Cake</li>
+                        <li>Sesiones Newborn y Kids</li>
+                        <li>Fotos en estudio o exteriores</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card" onclick="toggleZoom(this)">
+                <div class="icon-box">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3>Book Exteriores</h3>
+                <div class="card-content">
+                    <p>Sesión inolvidable para resaltar tu personalidad.</p>
+                    <ul>
+                        <li>Luz natural en locaciones a elección</li>
+                        <li>Cambios de vestuario incluidos</li>
+                        <li>Ideal para tarjetas de invitación</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card" onclick="toggleZoom(this)">
+                <div class="icon-box">
+                    <i class="fas fa-camera-retro"></i>
+                </div>
+                <h3>Revelado Digital</h3>
+                <div class="card-content">
+                    <p>Tus recuerdos en papel de alta calidad.</p>
+                    <ul>
+                        <li>Álbumes de fotos premium</li>
+                        <li>Murales y Gigantografías</li>
+                        <li>Foto-tarjetas y más</li>
+                    </ul>
+                </div>
             </div>
         </div>
+    </section>
+</section>
 
-        <div class="service-card" onclick="toggleZoom(this)">
-            <div class="icon-box">
-                <i class="fas fa-video"></i>
-            </div>
-            <h3>Videofilmación</h3>
-            <div class="card-content">
-                <p>Servicio en exteriores y evento principal. Entrega post-fiesta con:</p>
-                <ul>
-                    <li>Grabación del evento</li>
-                    <li>momentos y ceremonias</li>
-                    <li>Edición profesional </li>
-                    <li>Edición para redes sociales </li>
-                    <li>Calidad digital full HD</li>
-                </ul>
-            </div>
+<section class="premium-showcase wedding-section">
+    <div class="showcase-content">
+        <h2 class="gold-subtitle">ELEGANCIA & ROMANCE</h2>
+        <h1 class="showcase-title">Tu Boda, Nuestra Lente</h1>
+        <p>
+
+            Más que fotografías, creo memorias vivas: risas compartidas, lágrimas de emoción, abrazos sinceros y la
+            belleza de lo inesperado. Cada imagen refleja la esencia de los novios y la atmósfera que los rodea, para
+            que puedan revivir su historia una y otra vez.
+
+
+        </p>
+        <div class="showcase-features">
+            <div class="feature-item"><i class="fas fa-check-circle"></i> Cobertura de todo el evento</div>
+            <div class="feature-item"><i class="fas fa-check-circle"></i> Iglesia y Civil</div>
+            <div class="feature-item"><i class="fas fa-check-circle"></i> Videoclip de Exteriores</div>
         </div>
-
-        <div class="service-card" onclick="toggleZoom(this)">
-            <div class="icon-box">
-                <i class="fas fa-film"></i>
-            </div>
-            <h3>Videoclip Pantalla</h3>
-            <div class="card-content">
-                <p>Realizado antes de la fiesta para proyectar en pantalla gigante:</p>
-                <ul>
-                    <li>Fotos del recuerdo y Saludos</li>
-                    <li>Video divertido con amigos</li>
-                    <li>Video Teen Models</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="service-card" onclick="toggleZoom(this)">
-            <div class="icon-box">
-                <i class="fas fa-leaf"></i>
-            </div>
-            <h3>Book Exteriores</h3>
-            <div class="card-content">
-                <p>Sesión inolvidable para resaltar tu personalidad.</p>
-                <ul>
-                    <li>Luz natural en locaciones a elección</li>
-                    <li>Cambios de vestuario incluidos</li>
-                    <li>Ideal para tarjetas de invitación</li>
-                </ul>
-            </div>
-        </div>
-
-         <div class="service-card" onclick="toggleZoom(this)">
-            <div class="icon-box">
-                <i class="fas fa-film"></i>
-            </div>
-            <h3>SERVICIOS DE REVELADO</h3>
-            <div class="card-content">
-                <p>Realizamos servicios de revelado digital</p>
-                <p>Procesos modernos, las fotos duran para siempre</p>
-                <ul>
-                    <li>Albumes de fotos</li>
-                    <li>Murales y Gigantografías</li>
-                    <li>fototarjetas y mas</li>
-                </ul>
-            </div>
-        </div>
-
-      
-
+    </div>
+    <div class="showcase-image">
+        <img src="{{ url_for('static', filename='img/boda_preview.jpg') }}" alt="Fotografía de Bodas">
+    </div>
+    <div class="showcase-image">
+        <img src="{{ url_for('static', filename='img/boda_preview2.jpg') }}" alt="Fotografía de Bodas">
     </div>
 
-
-       
-
 </section>
+
+<section class="premium-showcase children-section reversed">
+    <div class="showcase-content">
+        <h2 class="gold-subtitle">MAGIA & ESPONTANEIDAD</h2>
+        <h1 class="showcase-title">Sesiones Infantiles</h1>
+        <p>Los más pequeños crecen rápido. Guardamos para siempre sus sonrisas más puras y sus gestos más divertidos en
+            sesiones diseñadas para que ellos se diviertan mientras capturamos su esencia.</p>
+        <div class="showcase-features">
+            <div class="feature-item"><i class="fas fa-check-circle"></i> Fotos en Exteriores</div>
+            <div class="feature-item"><i class="fas fa-check-circle"></i> Fotos con su Familia</div>
+            <div class="feature-item"><i class="fas fa-check-circle"></i> Exteriores Divertidos</div>
+        </div>
+    </div>
+    <div class="showcase-image">
+        <img src="{{ url_for('static', filename='img/ninos_preview.jpg') }}" alt="Fotografía Infantil">
+    </div>
+    <div class="showcase-image">
+        <img src="{{ url_for('static', filename='img/ninos_preview2.jpg') }}" alt="Fotografía Infantil">
+    </div>
 </section>
 
 <section class="gallery-preview-section">
- <h2>Nuestros Trabajos Recientes</h2>
+    <h2>Nuestros Trabajos Recientes</h2>
     <div class="gallery-grid">
         <img src="{{ url_for('static', filename='img/foto5.jpg') }}" alt="Foto 1" class="gallery-img">
         <img src="{{ url_for('static', filename='img/foto6.jpg') }}" alt="Foto 1" class="gallery-img">
-       
-     
+
+
     </div>
 
     <div class="gallery-grid" style="margin-top: 1rem;">
-      
+
         <img src="{{ url_for('static', filename='img/foto10.jpg') }}" alt="Foto 1" class="gallery-img">
         <img src="{{ url_for('static', filename='img/foto9.jpg') }}" alt="Foto 1" class="gallery-img">
-     
-    </div>
-   
-    <div class="gallery-grid" style="margin-top: 1rem;">
-      
-        <img src="{{ url_for('static', filename='img/foto7.jpg') }}" alt="Foto 1" class="gallery-img">
-        <img src="{{ url_for('static', filename='img/foto8.jpg') }}" alt="Foto 1" class="gallery-img">
-     
+
     </div>
 
-      <div style="margin-top: 2rem;">
+    <div class="gallery-grid" style="margin-top: 1rem;">
+
+        <img src="{{ url_for('static', filename='img/foto7.jpg') }}" alt="Foto 1" class="gallery-img">
+        <img src="{{ url_for('static', filename='img/foto8.jpg') }}" alt="Foto 1" class="gallery-img">
+
+    </div>
+
+    <div style="margin-top: 2rem;">
         <a href="/galeria" class="btn-gold" style="background: #333; color: white;">Ver Galería Completa</a>
     </div>
-  
+
 </section>
 
 <section class="faq-section">
     <div class="faq-container">
         <h2 class="gold-title-center">Preguntas Frecuentes</h2>
-        
+
         <details class="faq-item">
             <summary>¿Con cuánta anticipación debo reservar?</summary>
-            <p>Recomendamos reservar al menos 6 a 12 meses antes del evento, especialmente si tu fecha es en temporada alta (Septiembre-Diciembre).</p>
+            <p>Recomendamos reservar al menos 6 a 12 meses antes del evento, especialmente si tu fecha es en temporada
+                alta (Septiembre-Diciembre).</p>
         </details>
 
         <details class="faq-item">
             <summary>¿Trabajas fuera de la ciudad de Santa Fe?</summary>
-            <p>¡Sí! Nos encanta viajar. Cubrimos eventos en toda la provincia y alrededores. Consultanos por viáticos de traslado.</p>
+            <p>¡Sí! Nos encanta viajar. Cubrimos eventos en toda la provincia y alrededores. Consultanos por viáticos de
+                traslado.</p>
         </details>
 
         <details class="faq-item">
             <summary>¿Cómo se realiza el pago?</summary>
-            <p>Reservas la fecha con una seña mínima (efectivo o transferencia) y el saldo restante lo puedes ir abonando en cuotas a tu ritmo hasta la semana del evento.</p>
+            <p>Reservas la fecha con una seña mínima (efectivo o transferencia) y el saldo restante lo puedes ir
+                abonando en cuotas a tu ritmo hasta la semana del evento.</p>
         </details>
 
         <details class="faq-item">
             <summary>¿Cuántas fotos entregan?</summary>
-            <p>No tenemos límite de disparos. En una cobertura completa solemos entregar entre 600 y 1000 fotos editadas en alta calidad digital.</p>
+            <p>No tenemos límite de disparos. En una cobertura completa solemos entregar entre 600 y 1000 fotos editadas
+                en alta calidad digital.</p>
         </details>
     </div>
 </section>
@@ -212,7 +292,7 @@
     <div class="container-center">
         <h2 class="gold-title-center">Historias Reales</h2>
         <p class="subtitle-center">La felicidad de quienes ya confiaron en nosotros.</p>
-        
+
         <div class="testimonials-grid">
             {% for item in testimonios %}
             <div class="testimonial-card">
@@ -221,14 +301,14 @@
                     <i class="fas fa-star"></i>
                     {% endfor %}
                 </div>
-                
+
                 <p class="quote">"{{ item.comentario }}"</p>
-                
+
                 <div class="client-info">
                     <h4 class="client-name">{{ item.nombre }}</h4>
                     <span class="client-event">{{ item.evento }}</span>
                 </div>
-                
+
                 <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
             </div>
             {% endfor %}
@@ -260,43 +340,45 @@
                 <div class="step-number">03</div>
                 <div class="step-icon"><i class="far fa-calendar-check"></i></div>
                 <h3>Reserva</h3>
-                <p>Congela la fecha con una <span class="highlight-gold">seña mínima</span>. El saldo lo abonas cómodamente hasta el evento.</p>
+                <p>Congela la fecha con una <span class="highlight-gold">seña mínima</span>. El saldo lo abonas
+                    cómodamente hasta el evento.</p>
             </div>
         </div>
     </div>
 </section>
 
 
-            
+
 <section id="contacto" class="contact-parallax">
     <div class="contact-overlay">
         <div class="glass-form-container">
             <h2 class="gold-title">Hablemos de tu Evento</h2>
             <p class="white-text">Reserva tu fecha con anticipación.</p>
-            
+
             <div class="modern-form">
                 <div class="input-group">
                     <input type="text" id="contact-nombre" required placeholder=" ">
                     <label>Tu Nombre</label>
                 </div>
-                
+
                 <div class="input-group">
                     <input type="email" id="contact-email" required placeholder=" ">
                     <label>Tu Email</label>
                 </div>
-                
+
                 <div class="input-group">
                     <textarea id="contact-mensaje" rows="4" required placeholder=" "></textarea>
                     <label>Cuéntanos tu idea...</label>
                 </div>
 
-                <button type="button" class="btn-gold-filled" onclick="enviarFormularioWhatsApp()">ENVIAR A WHATSAPP <i class="fab fa-whatsapp"></i></button>
+                <button type="button" class="btn-gold-filled" onclick="enviarFormularioWhatsApp()">ENVIAR A WHATSAPP <i
+                        class="fab fa-whatsapp"></i></button>
             </div>
         </div>
     </div>
 </section>
-        </div>
-    </div>
+</div>
+</div>
 </section>
 
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>
