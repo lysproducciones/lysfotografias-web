@@ -9,9 +9,18 @@
 </section>
 
 <section class="gallery-container">
+    <div class="gallery-filters">
+        <button class="filter-btn active" onclick="filtrarGaleria('todo')">Todo</button>
+        <button class="filter-btn" onclick="filtrarGaleria('15-anos')">15 Años</button>
+        <button class="filter-btn" onclick="filtrarGaleria('bodas')">Bodas</button>
+        <button class="filter-btn" onclick="filtrarGaleria('ninos')">Infantiles</button>
+    </div>
+
     <div class="instagram-grid">
         {% for link in fotos %}
-        <div class="insta-item" onclick="abrirVisor('{{ link }}')">
+        <div class="insta-item"
+            data-category="{{ '15-anos' if '15' in link else 'bodas' if 'boda' in link else 'ninos' if 'nino' in link else 'todo' }}"
+            onclick="abrirVisor('{{ link }}')">
             <img src="{{ link }}" alt="Foto Lys" loading="lazy">
             <div class="overlay">
                 <i class="fas fa-search-plus"></i>
@@ -38,6 +47,24 @@
 </div>
 
 <script>
+    // Función para filtrar la galería
+    function filtrarGaleria(categoria) {
+        // Actualizar botones
+        const botones = document.querySelectorAll('.filter-btn');
+        botones.forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+
+        // Filtrar fotos
+        const items = document.querySelectorAll('.insta-item');
+        items.forEach(item => {
+            if (categoria === 'todo' || item.getAttribute('data-category') === categoria) {
+                item.classList.remove('hidden');
+            } else {
+                item.classList.add('hidden');
+            }
+        });
+    }
+
     // Función para abrir la foto en grande
     function abrirVisor(src) {
         var visor = document.getElementById("visor");
